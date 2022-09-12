@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MoneyController {
     @GetMapping("/")
     public String convert(){
-        return "/index";
+        return "index";
     }
     @GetMapping("/convert")
-    public String abc(@RequestParam double usd, Model model){
+    public String converted(@RequestParam double usd, Model model){
         model.addAttribute("kq",(usd*23000));
-        return "/index";
+        return "index";
     }
 }
