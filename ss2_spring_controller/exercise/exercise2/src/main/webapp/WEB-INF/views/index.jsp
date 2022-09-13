@@ -17,10 +17,10 @@
     <input type="text" value="${num2}" name="secondNumber">
     <br>
 
-    <button name="string" value="addition">Addition(+)</button>
-    <button name="string" value="subtraction">Subtraction(-)</button>
-    <button name="string" value="multiplication">Multiplication(*)</button>
-    <button name="string" value="division">Division(/)</button>
+    <button name="operator" value="addition">Addition(+)</button>
+    <button name="operator" value="subtraction">Subtraction(-)</button>
+    <button name="operator" value="multiplication">Multiplication(*)</button>
+    <button name="operator" value="division">Division(/)</button>
 
 </form>
 <h2>Result: ${result}</h2>

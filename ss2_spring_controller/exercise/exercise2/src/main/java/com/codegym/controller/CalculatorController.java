@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CalculatorController {
+
     @Autowired
-    ICalculatorService iCalculatorService;
+    private ICalculatorService iCalculatorService;
 
     @RequestMapping("/")
     public String display() {
@@ -18,12 +19,12 @@ public class CalculatorController {
     }
 
     @RequestMapping("/calculate")
-    public String save(@RequestParam String string,
+    public String save(@RequestParam String operator,
                        @RequestParam String firstNumber,
                        @RequestParam String secondNumber,
-                       Model model
-    ) {
-        String result = iCalculatorService.result(firstNumber, secondNumber, string);
+                       Model model) {
+
+        String result = iCalculatorService.result(firstNumber, secondNumber, operator);
         model.addAttribute("result", result);
         model.addAttribute("firstNumber", firstNumber);
         model.addAttribute("secondNumber", secondNumber);
