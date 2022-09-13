@@ -14,37 +14,49 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h2 class="text-center">Email list</h2>
+<h2 class="text-center"> Medical Declaration list</h2>
 
-<h4 style="color: green" class="text-center">${message}</h4>
+<h4 style="color: darkgreen" class="text-center">${message}</h4>
 
 <table class="table">
   <thead>
   <tr>
-    <th>ID</th>
-    <th>Language</th>
-    <th>Page size</th>
-    <th>Spams filter</th>
-    <th>Signature</th>
+    <th>STT</th>
+    <th>Họ tên</th>
+    <th>Năm sinh</th>
+    <th>Giới tính</th>
+    <th>Quốc tịch</th>
+    <th>Số CMND/Hộ chiếu</th>
+    <th>Thông tin đi lại</th>
+    <th>Số hiệu phương tiện</th>
+    <th>Số ghế</th>
+    <th>Ngày khởi hành</th>
+    <th>Ngày Kết thúc</th>
+    <th>Lịch sử đi lại</th>
     <th></th>
   </tr>
   </thead>
   <tbody>
-  <c:forEach items="${mailboxList}" var="mail">
+  <c:forEach items="${declarations}" var="declaration">
     <tr>
-      <td>${mail.id}</td>
-      <td>${mail.language}</td>
-      <td>${mail.pageSize}</td>
-      <td>${mail.spamsFilter}</td>
-      <td>${mail.signature}</td>
-      <td><a href="/update?id=${mail.id}">Update</a></td>
+      <td hidden>${declaration.id}</td>
+      <td>${declaration.name}</td>
+      <td>${declaration.dayOfBirth}</td>
+      <td>${declaration.gender}</td>
+      <td>${declaration.nationality}</td>
+      <td>${declaration.idCard}</td>
+      <td>${declaration.travelInformation}</td>
+      <td>${declaration.vehicleNumber}</td>
+      <td>${declaration.seatNumber}</td>
+      <td>${declaration.startDate}</td>
+      <td>${declaration.endDate}</td>
+      <td>${declaration.travelHistory}</td>
+      <td><a href="/update?id=${declaration.id}">Update</a></td>
     </tr>
   </c:forEach>
   </tbody>
 </table>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
