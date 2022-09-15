@@ -38,44 +38,44 @@ public class ProductController {
         return "redirect:/product";
     }
 
-    @GetMapping("/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
-        model.addAttribute("product", iProductService.findById(id));
-        return "edit";
-    }
-
-
-    @PostMapping("/update")
-    public String update(@ModelAttribute Product product, RedirectAttributes redirect) {
-        iProductService.update(product.getId(),product);
-        redirect.addFlashAttribute("message", "Update product successfully!");
-        return "redirect:/product";
-    }
-
-    @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
-        model.addAttribute("product", iProductService.findById(id));
-        return "delete";
-    }
-
-    @PostMapping("/delete")
-    public String delete(@ModelAttribute Product product, RedirectAttributes redirect) {
-        iProductService.remove(product.getId());
-        redirect.addFlashAttribute("message", "Removed product successfully!");
-        return "redirect:/product";
-    }
-
-    @GetMapping("/{id}/view")
-    public String view(@PathVariable int id, Model model) {
-        model.addAttribute("product", iProductService.findById(id));
-        return "view";
-    }
-
-    @GetMapping("/search")
-    public String search(@RequestParam String name,Model model){
-        model.addAttribute("product",iProductService.findByName(name));
-        return "index";
-    }
+//    @GetMapping("/{id}/edit")
+//    public String edit(@PathVariable int id, Model model) {
+//        model.addAttribute("product", iProductService.findById(id));
+//        return "edit";
+//    }
+//
+//
+//    @PostMapping("/update")
+//    public String update(@ModelAttribute Product product, RedirectAttributes redirect) {
+//        iProductService.update(product.getId(),product);
+//        redirect.addFlashAttribute("message", "Update product successfully!");
+//        return "redirect:/product";
+//    }
+//
+//    @GetMapping("/{id}/delete")
+//    public String delete(@PathVariable int id, Model model) {
+//        model.addAttribute("product", iProductService.findById(id));
+//        return "delete";
+//    }
+//
+//    @PostMapping("/delete")
+//    public String delete(@ModelAttribute Product product, RedirectAttributes redirect) {
+//        iProductService.remove(product.getId());
+//        redirect.addFlashAttribute("message", "Removed product successfully!");
+//        return "redirect:/product";
+//    }
+//
+//    @GetMapping("/{id}/view")
+//    public String view(@PathVariable int id, Model model) {
+//        model.addAttribute("product", iProductService.findById(id));
+//        return "view";
+//    }
+//
+//    @GetMapping("/search")
+//    public String search(@RequestParam String name,Model model){
+//        model.addAttribute("product",iProductService.findByName(name));
+//        return "index";
+//    }
 
 
 }
