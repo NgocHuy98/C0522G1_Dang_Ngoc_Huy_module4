@@ -15,7 +15,7 @@ import java.util.List;
 public class ZingMusicController {
 
     @Autowired
-    private IZingMusicService iZingMusicService;
+   IZingMusicService iZingMusicService;
 
     @GetMapping("")
     public String index(Model model) {

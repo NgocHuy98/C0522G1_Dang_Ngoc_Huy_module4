@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ZingMusicService implements IZingMusicService {
     @Autowired
-    private IZingMusicRepository iZingMusicRepository;
+    IZingMusicRepository iZingMusicRepository;
 
     @Override
     public List<ZingMusic> findAll() {
