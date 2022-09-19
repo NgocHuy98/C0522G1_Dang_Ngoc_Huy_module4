@@ -13,6 +13,6 @@ import java.util.List;
 public interface IBlogRepository extends JpaRepository<Blog,Integer> {
     Blog findById(int id);
 
-    @Query(value = "select * from Blog where name like %:keyword%", nativeQuery = true)
+    @Query(value = "select * from Blog where tittle like %:keyword%", nativeQuery = true)
     List<Blog> searchByName(@Param("keyword") String name);
 }

@@ -12,17 +12,18 @@ import java.util.List;
 
 @Controller
 
+
 public class ProductController {
 
     @Autowired
-    IProductService iProductService;
+   private IProductService iProductService;
 
-    @GetMapping({"/product","/"})
-    public String index(Model model) {
-        List<Product> productList = iProductService.findAll();
-        model.addAttribute("product", productList);
-        return "index";
-    }
+//    @GetMapping({"/product","/"})
+//    public String index(Model model) {
+//        List<Product> productList = iProductService.findAll();
+//        model.addAttribute("product", productList);
+//        return "index";
+//    }
 
     @GetMapping("/create")
     public String create(Model model) {
@@ -32,7 +33,6 @@ public class ProductController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Product product,RedirectAttributes redirectAttributes) {
-        product.setId((int) (Math.random() * 10000));
         iProductService.save(product);
         redirectAttributes.addFlashAttribute("message","Create new product successfully!");
         return "redirect:/product";
@@ -71,9 +71,15 @@ public class ProductController {
         return "view";
     }
 
-    @GetMapping("/search")
-    public String search(@RequestParam String name,Model model){
-        model.addAttribute("product",iProductService.searchByName(name));
+//    @GetMapping("/search")
+//    public String search(@RequestParam String name,Model model){
+//        model.addAttribute("product",iProductService.searchByName(name));
+//        return "index";
+//    }
+
+    @GetMapping({"/","/product"})
+    public String search(@RequestParam(defaultValue = "") String name, Model model) {
+        model.addAttribute("product", iProductService.searchByName(name));
         return "index";
     }
 

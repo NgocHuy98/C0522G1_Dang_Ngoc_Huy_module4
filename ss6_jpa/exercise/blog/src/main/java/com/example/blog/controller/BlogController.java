@@ -14,7 +14,7 @@ import java.util.List;
 @Controller
 public class BlogController {
     @Autowired
-    IBlogService iBlogService;
+    private IBlogService iBlogService;
 
     @GetMapping({"/blog","/"})
     public String index(Model model) {
@@ -31,7 +31,6 @@ public class BlogController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
-        blog.setId((int) (Math.random() * 10000));
         iBlogService.save(blog);
         redirectAttributes.addFlashAttribute("message","Create new Blog successfully!");
         return "redirect:/blog";
@@ -70,9 +69,9 @@ public class BlogController {
         return "view";
     }
 
-    @GetMapping("/search")
-    public String search(@RequestParam String name, Model model){
-        model.addAttribute("blog",iBlogService.searchByName(name));
-        return "index";
-    }
+//    @GetMapping("/search")
+//    public String search(@RequestParam String name, Model model){
+//        model.addAttribute("blog",iBlogService.searchByName(name));
+//        return "index";
+//    }
 }

@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <body>
-<h3>Blogs</h3>
+<h2 class="text-center">Blogs</h2>
 
 <p>
-    <a th:href="@{/create}">
+    <a th:href="@{/create}" class="btn btn-secondary">
         Add new blog
     </a>
 </p>
@@ -18,14 +18,11 @@
     <span th:text="${message}"></span>
   </div>
 </div>
-<!--<form action="/search" method="get" >-->
-<!--    <input type="text" name="name">-->
-<!--    <button type="submit">Search</button>-->
+
+<!--<form action="/search" method="get">-->
+<!--    <input type="search" name="name" placeholder="search name...">-->
+<!--    <button type="submit" class="btn btn-dark">Search</button>-->
 <!--</form>-->
-<form action="/search" method="get">
-    <input type="search" name="name" placeholder="search name...">
-    <button type="submit">Search</button>
-</form>
 <table id = "blogs">
 
     <thead>
@@ -45,9 +42,9 @@
         <td th:text="${row.dateWriting}"></td>
         <td><a th:href="@{/{id}/view(id=${row.id})}">Link ...</a></td>
         <td th:text="${row.author}"></td>
-        <td><a th:href="@{/{id}/edit(id=${row.id})}">edit</a></td>
-        <td><a th:href="@{/{id}/delete(id=${row.id})}">delete</a></td>
-        <td><a th:href="@{/{id}/view(id=${row.id})}">view</a></td>
+        <td><a th:href="@{/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
+        <td><a th:href="@{/{id}/delete(id=${row.id})}" class="btn btn-danger">delete</a></td>
+        <td><a th:href="@{/{id}/view(id=${row.id})}" class="btn btn-success">view</a></td>
     </tr>
     </tbody>
 </table>
