@@ -10,16 +10,16 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nameSong;
+    private String songName;
     private String singer;
     private String type;
 
     public Song() {
     }
 
-    public Song(int id, String nameSong, String singer, String type) {
+    public Song(int id, String songName, String singer, String type) {
         this.id = id;
-        this.nameSong = nameSong;
+        this.songName = songName;
         this.singer = singer;
         this.type = type;
     }
@@ -32,12 +32,12 @@ public class Song {
         this.id = id;
     }
 
-    public String getNameSong() {
-        return nameSong;
+    public String getSongName() {
+        return songName;
     }
 
-    public void setNameSong(String nameSong) {
-        this.nameSong = nameSong;
+    public void setSongName(String songName) {
+        this.songName = songName;
     }
 
     public String getSinger() {

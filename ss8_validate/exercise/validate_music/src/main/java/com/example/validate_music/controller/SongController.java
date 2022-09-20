@@ -1,4 +1,5 @@
 package com.example.validate_music.controller;
+
 import com.example.validate_music.dto.SongDto;
 import com.example.validate_music.model.Song;
 import com.example.validate_music.service.ISongService;
@@ -20,7 +21,7 @@ public class SongController {
     @Autowired
     private ISongService iSongService;
 
-    @GetMapping("/")
+    @GetMapping("/music")
     public String showList(Model model) {
         List<Song> songList = iSongService.findAll();
         model.addAttribute("songList", songList);
@@ -28,7 +29,7 @@ public class SongController {
     }
 
     @GetMapping("/create")
-    public String showCreate(Model model) {
+    public String showFormCreate(Model model) {
         model.addAttribute("songDto", new SongDto());
         return "create";
     }
@@ -37,14 +38,15 @@ public class SongController {
     public String save(@ModelAttribute @Validated SongDto songDto,
                        BindingResult bindingResult,
                        RedirectAttributes redirectAttributes) {
+
         if (bindingResult.hasFieldErrors()) {
             return "create";
         } else {
             Song song = new Song();
-            BeanUtils.copyProperties(SongDto, song);
+            BeanUtils.copyProperties(songDto, song);
             iSongService.save(song);
             redirectAttributes.addFlashAttribute("message", "create song successful!");
-            return "redirect:/";
+            return "redirect:/music";
         }
     }
 
@@ -55,7 +57,8 @@ public class SongController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("songList") @Validated SongDto songDto, BindingResult bindingResult,
+    public String edit(@ModelAttribute("songList") @Validated SongDto songDto,
+                       BindingResult bindingResult,
                        RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasFieldErrors()) {
@@ -65,7 +68,7 @@ public class SongController {
             BeanUtils.copyProperties(songDto, song);
             iSongService.update(song);
             redirectAttributes.addFlashAttribute("message", "update song successful!");
-            return "redirect:/";
+            return "redirect:/music";
         }
     }
 
@@ -79,7 +82,7 @@ public class SongController {
     public String delete(Song song, RedirectAttributes redirectAttributes) {
         iSongService.remove(song);
         redirectAttributes.addFlashAttribute("message", "Remove song successfully!");
-        return "redirect:/";
+        return "redirect:/music";
     }
 
     @GetMapping("/{id}/view")
