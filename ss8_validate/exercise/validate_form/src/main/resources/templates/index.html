@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+<h2 class="text-center">User</h2>
+
+<p>
+    <a th:href="@{/create}" class="btn btn-secondary">
+        Add new User
+    </a>
+</p>
+<div class="notify">
+  <div th:if="${message}">
+    <span th:text="${message}"></span>
+  </div>
+</div>
+
+<table id = "validators">
+
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${validators}">
+        <td th:text="${row.firstName}"></td>
+        <td th:text="${row.lastName}"></td>
+        <td th:text="${row.phoneNumber}"></td>
+        <td th:text="${row.age}"></td>
+        <td th:text="${row.email}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!--<div>-->
+<!--    <a th:href="@{'/blog'(page=${blog.number - 1})}" th:if="${blog.hasPrevious()}">Previous</a>-->
+<!--    <span th:text="${blog.number + 1}"></span>/<span th:text="${blog.totalPages}"></span>-->
+<!--    <a th:href="@{'/blog'(page=${blog.number + 1})}" th:if="${blog.hasNext()}">Next</a>-->
+<!--</div>-->
+<footer th:replace="/layout :: footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -6,12 +6,12 @@
     <title>show blogs</title>
 </head>
 <body>
-<h1>Blogs List</h1>
-<h2>
-    <a th:href="@{/category/create}">
-        Add new Category
+<h1 class="text-center">Category List</h1>
+<p>
+    <a th:href="@{/create}" class="btn btn-secondary">
+        Add new category
     </a>
-</h2>
+</p>
 
 <div class="notify">
     <div th:if="${message}">

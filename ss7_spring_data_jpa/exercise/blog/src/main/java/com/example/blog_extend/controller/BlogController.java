@@ -4,7 +4,6 @@ import com.example.blog_extend.model.Blog;
 import com.example.blog_extend.service.IBlogService;
 import com.example.blog_extend.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
