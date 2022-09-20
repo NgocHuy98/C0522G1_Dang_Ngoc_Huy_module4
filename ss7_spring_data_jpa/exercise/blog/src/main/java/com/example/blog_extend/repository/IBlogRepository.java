@@ -10,15 +10,19 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IBlogRepository extends JpaRepository<Blog, Integer> {
+
     Blog findById(int id);
 
+    Page<Blog>findByTittleContaining(String name, Pageable pageable);
+
+    @Query(value = "select  * from Blog where category_id =:key ", nativeQuery = true)
+    Page<Blog> findByAllBlog(@Param("key") int id, Pageable pageable);
+
 //    @Query(value = "select * from Blog where tittle like %:keyword%", nativeQuery = true)
-//    Page<Blog> searchByName(@Param("keyword") String name, org.springframework.data.domain.Pageable pageable);
+//    Page<Blog> searchByName(@Param("keyword") String name, Pageable pageable);
+//
+//    @Query(value = "select  * from Blog order by date_writing DESC ", nativeQuery = true)
+//    Page<Blog> findAll(Pageable pageable);
 
 
-    @Query(value = "select * from Blog where tittle like %:keyword%", nativeQuery = true)
-    Page<Blog> searchByName(@Param("keyword") String name, Pageable pageable);
-
-    @Query(value = "select  * from Blog order by date_writing DESC ", nativeQuery = true)
-    Page<Blog> findAll(Pageable pageable);
 }

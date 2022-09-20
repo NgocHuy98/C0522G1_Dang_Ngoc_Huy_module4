@@ -6,6 +6,7 @@ import com.example.blog_extend.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,31 +22,44 @@ public class BlogController {
     @Autowired
     private IBlogService iBlogService;
 
-    @GetMapping({"/blog"})
-    public String index (@PageableDefault(value = 3) Pageable pageable, Model model) {
-        Page<Blog> blogList = iBlogService.findAll(pageable);
-        model.addAttribute("blog", blogList);
+//    @GetMapping({"/blog"})
+//    public String index (@PageableDefault(value = 3) Pageable pageable, Model model) {
+//        Page<Blog> blogList = iBlogService.findAll(pageable);
+//        model.addAttribute("blog", blogList);
+//        model.addAttribute("categoryList", iCategoryService.findAll());
+//        return "index";
+//    }
+
+    @GetMapping("/blog")
+    public String showList(@PageableDefault(value = 3,sort = "dateWriting", direction = Sort.Direction.DESC)
+                                   Pageable pageable, @RequestParam(value = "search", defaultValue = "")
+                                   String name, Model model) {
+
+        model.addAttribute("blog", iBlogService.findByTittleContaining(name, pageable));
         model.addAttribute("categoryList", iCategoryService.findAll());
+        model.addAttribute("search", name);
+
         return "index";
     }
 
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("blog", new Blog());
-        model.addAttribute("categoryList",iCategoryService.findAll());
+        model.addAttribute("categoryList", iCategoryService.findAll());
         return "create";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
         iBlogService.save(blog);
-        redirectAttributes.addFlashAttribute("message","Create new Blog successfully!");
+        redirectAttributes.addFlashAttribute("message", "Create new Blog successfully!");
         return "redirect:/blog";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable int id, Model model) {
         model.addAttribute("blog", iBlogService.findById(id));
+        model.addAttribute("categoryList", iCategoryService.findAll());
         return "edit";
     }
 
@@ -76,10 +90,10 @@ public class BlogController {
         return "view";
     }
 
-    @GetMapping("/search")
-    public String search(@RequestParam(value = "tittle",defaultValue = "") String name,
-                         @PageableDefault(value = 3) Pageable pageable, Model model){
-        model.addAttribute("blog",iBlogService.searchByName(name,pageable));
-        return "index";
-    }
+//    @GetMapping("/search")
+//    public String search(@RequestParam(value = "tittle",defaultValue = "") String name,
+//                         @PageableDefault(value = 3) Pageable pageable, Model model){
+//        model.addAttribute("blog",iBlogService.searchByName(name,pageable));
+//        return "index";
+//    }
 }

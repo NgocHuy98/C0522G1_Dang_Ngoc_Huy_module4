@@ -1,8 +1,11 @@
 package com.example.blog_extend.controller;
 
 import com.example.blog_extend.model.Category;
+import com.example.blog_extend.service.IBlogService;
 import com.example.blog_extend.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +18,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-@Autowired
+
+    @Autowired
     private ICategoryService iCategoryService;
 
+    @Autowired
+    private IBlogService iBlogService;
+
     @GetMapping
-    public ModelAndView showCategory(){
-        return new ModelAndView("category/index","categoryList",iCategoryService.findAll());
+    public ModelAndView showCategory() {
+        return new ModelAndView("category/index", "categoryList", iCategoryService.findAll());
     }
 
     @GetMapping("/create")
@@ -62,4 +69,9 @@ public class CategoryController {
         return "redirect:/category";
     }
 
+    @GetMapping("/view/{id}")
+    public String view(@PageableDefault(value = 2) @PathVariable int id, Pageable pageable, Model model) {
+        model.addAttribute("blog", iBlogService.findByAllBlog(id,pageable));
+        return "index";
+    }
 }

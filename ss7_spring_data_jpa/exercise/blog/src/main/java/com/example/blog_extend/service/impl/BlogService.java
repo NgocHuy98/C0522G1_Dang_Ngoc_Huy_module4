@@ -30,9 +30,14 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    public Page<Blog> searchByName(String name,Pageable pageable) {
-        return iBlogRepository.searchByName(name,pageable);
+    public Page<Blog> findByTittleContaining(String name, Pageable pageable) {
+        return iBlogRepository.findByTittleContaining(name,pageable);
     }
+
+//    @Override
+//    public Page<Blog> searchByName(String name,Pageable pageable) {
+//        return iBlogRepository.searchByName(name,pageable);
+//    }
 
     @Override
     public void save(Blog blog) {
@@ -42,6 +47,11 @@ public class BlogService implements IBlogService {
     @Override
     public Page<Blog> findAll(Pageable pageable) {
         return iBlogRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Blog> findByAllBlog(int id, Pageable pageable) {
+        return iBlogRepository.findByAllBlog(id,pageable);
     }
 
 

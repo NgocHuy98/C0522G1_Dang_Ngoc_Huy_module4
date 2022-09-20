@@ -14,11 +14,14 @@ public interface IBlogService {
 
 //    List<Blog> findAll();
 
-    Page<Blog> searchByName(String name, Pageable pageable);
+//    Page<Blog> searchByName(String name, Pageable pageable);
+
+    Page<Blog>findByTittleContaining(String name, Pageable pageable);
 
     void save(Blog blog);
 
     Page<Blog> findAll(Pageable pageable);
 
 
+    Page<Blog> findByAllBlog(int id, Pageable pageable);
 }

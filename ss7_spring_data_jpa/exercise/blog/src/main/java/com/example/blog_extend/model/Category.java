@@ -9,7 +9,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
     private Set<Blog> blogs;
 
     public Category() {
