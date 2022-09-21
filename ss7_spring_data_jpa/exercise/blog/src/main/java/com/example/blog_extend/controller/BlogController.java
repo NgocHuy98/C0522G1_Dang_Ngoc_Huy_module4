@@ -27,6 +27,12 @@ public class BlogController {
 //        model.addAttribute("categoryList", iCategoryService.findAll());
 //        return "index";
 //    }
+    @GetMapping("/bl")
+    public String showListBlog( Model model) {
+        model.addAttribute("blog", iBlogService.searchByTittle());
+        model.addAttribute("categoryList", iCategoryService.findAll());
+        return "bl/index";
+    }
 
     @GetMapping("/blog")
     public String showList(@PageableDefault(value = 3, sort = "date_writing")Pageable pageable ,

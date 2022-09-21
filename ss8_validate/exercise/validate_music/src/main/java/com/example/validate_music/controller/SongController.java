@@ -34,7 +34,7 @@ public class SongController {
         return "create";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/create")
     public String save(@ModelAttribute @Validated SongDto songDto,
                        BindingResult bindingResult,
                        RedirectAttributes redirectAttributes) {
