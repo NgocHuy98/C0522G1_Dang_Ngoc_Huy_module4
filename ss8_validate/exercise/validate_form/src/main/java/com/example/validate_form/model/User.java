@@ -6,7 +6,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Validator {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,10 +21,10 @@ public class Validator {
 
     private String email;
 
-    public Validator() {
+    public User() {
     }
 
-    public Validator(int id, String firstName, String lastName, String phoneNumber, int age, String email) {
+    public User(int id, String firstName, String lastName, String phoneNumber, int age, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

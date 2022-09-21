@@ -9,20 +9,23 @@
   </a>
 </p>
 <div id="form">
-  <form action="#" th:action="@{/update}" th:object="${songList}"
+  <form action="#" th:action="@{/edit}" th:object="${songList}"
         method="POST" novalidate="novalidate">
     <input type="hidden" th:field="*{id}"/>
     <div>
       <label>Name of Song</label>
       <input type="text" th:field="*{songName}"/>
+      <p style="color: red" th:errors="*{songName}" th:if="${#fields.hasErrors('songName')}"></p>
     </div>
     <div>
       <label>Singer</label>
       <input type="text" th:field="*{singer}"/>
+      <p style="color: red" th:errors="*{singer}" th:if="${#fields.hasErrors('singer')}"></p>
     </div>
     <div>
       <label>Type of music</label>
       <input type="text" th:field="*{type}"/>
+      <p style="color: red" th:errors="*{type}" th:if="${#fields.hasErrors('type')}"></p>
     </div>
     <input type="submit" value="Edit"/>
   </form>

@@ -5,7 +5,6 @@ import com.example.blog_extend.service.IBlogService;
 import com.example.blog_extend.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,13 +29,12 @@ public class BlogController {
 //    }
 
     @GetMapping("/blog")
-    public String showList(@PageableDefault(value = 3,sort = "dateWriting", direction = Sort.Direction.DESC)
-                                   Pageable pageable, @RequestParam(value = "search", defaultValue = "")
-                                   String name, Model model) {
+    public String showList(@PageableDefault(value = 3, sort = "date_writing")Pageable pageable ,
+                           @RequestParam(defaultValue = "") String search, Model model) {
 
-        model.addAttribute("blog", iBlogService.findByTittleContaining(name, pageable));
+        model.addAttribute("blog", iBlogService.findByTittleContaining(search, pageable));
         model.addAttribute("categoryList", iCategoryService.findAll());
-        model.addAttribute("search", name);
+        model.addAttribute("search", search);
 
         return "index";
     }

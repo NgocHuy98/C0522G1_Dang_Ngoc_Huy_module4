@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<table id = "validators">
+<table id = "users">
 
     <thead>
     <tr>
@@ -31,7 +31,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="row,rowStat : ${validators}">
+    <tr th:each="row,rowStat : ${users}">
         <td th:text="${row.firstName}"></td>
         <td th:text="${row.lastName}"></td>
         <td th:text="${row.phoneNumber}"></td>

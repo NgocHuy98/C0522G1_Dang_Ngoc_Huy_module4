@@ -11,17 +11,17 @@ public class SongDto  {
 
     @NotBlank(message = "Cannot be left blank")
     @Size( max = 800, message = " max: 800 character")
-    @Pattern(regexp = "^[a-zA-Z0-9 \\+]*$")
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$")
     private String songName;
 
     @NotBlank(message = "Cannot be left blank")
     @Size( max = 300, message = " max: 300 character")
-    @Pattern(regexp = "^[a-zA-Z0-9 \\+]*$")
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$")
     private String singer;
 
     @NotBlank(message = "Cannot be left blank")
     @Size( max = 1000, message = " max: 1000 character")
-    @Pattern(regexp = "^[a-zA-Z0-9, \\+]*$")
+    @Pattern(regexp = "^[a-zA-Z0-9, ]*$")
     private String type;
 
     public SongDto() {

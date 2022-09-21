@@ -1,8 +1,8 @@
 package com.example.validate_form.controller;
 
-import com.example.validate_form.dto.ValidateDto;
-import com.example.validate_form.model.Validator;
-import com.example.validate_form.service.IValidateService;
+import com.example.validate_form.dto.UserDto;
+import com.example.validate_form.model.User;
+import com.example.validate_form.service.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,38 +17,38 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-public class ValidateController {
+public class UserController {
 
     @Autowired
-    private IValidateService iValidateService;
+    private IUserService iUserService;
 
     @GetMapping("/")
     public String showList(Model model) {
-        List<Validator> validators = iValidateService.findAll();
-        model.addAttribute("validators", validators);
+        List<User> users = iUserService.findAll();
+        model.addAttribute("users", users);
         return "index";
     }
 
     @GetMapping("/create")
     public String showFormCreate(Model model) {
-        model.addAttribute("validateDto", new ValidateDto());
+        model.addAttribute("userDto", new UserDto());
         return "create";
     }
 
-    @PostMapping("/create")
-    public String createUser(@ModelAttribute @Validated ValidateDto validateDto,
+    @PostMapping("/save")
+    public String createUser(@ModelAttribute @Validated UserDto userDto,
                              BindingResult bindingResult,
                              RedirectAttributes redirectAttributes) {
 
-        new ValidateDto().validate(validateDto, bindingResult);
+        new UserDto().validate(userDto, bindingResult);
         if (bindingResult.hasFieldErrors()) {
             return "create";
         } else {
-            Validator validator = new Validator();
-            BeanUtils.copyProperties(validateDto, validator);
-            iValidateService.save(validator);
-            redirectAttributes.addFlashAttribute("message", validator.getEmail() + "OK");
-            return "index";
+            User user = new User();
+            BeanUtils.copyProperties(userDto, user);
+            iUserService.save(user);
+            redirectAttributes.addFlashAttribute("message", user.getEmail() + "is OK");
+            return "redirect:/";
         }
     }
 }

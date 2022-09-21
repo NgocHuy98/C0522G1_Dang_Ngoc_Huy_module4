@@ -9,8 +9,9 @@
     </a>
 </p>
 <div id="form">
-    <form th:action="@{/create}" th:object="${validateDto}"
+    <form th:action="@{/save}" th:object="${userDto}"
           method="POST" novalidate="novalidate">
+
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label>First name</label>

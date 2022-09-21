@@ -52,7 +52,12 @@ public class SongController {
 
     @GetMapping("/{id}/edit")
     public String showFormEdit(@PathVariable int id, Model model) {
-        model.addAttribute("songList", iSongService.findById(id));
+
+        Song song = iSongService.findById(id);
+        SongDto songDto = new SongDto();
+        BeanUtils.copyProperties(song, songDto);
+        model.addAttribute("songList",songDto);
+
         return "edit";
     }
 
