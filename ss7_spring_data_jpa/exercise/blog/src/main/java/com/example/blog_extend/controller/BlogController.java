@@ -20,13 +20,7 @@ public class BlogController {
     @Autowired
     private IBlogService iBlogService;
 
-//    @GetMapping({"/blog"})
-//    public String index (@PageableDefault(value = 3) Pageable pageable, Model model) {
-//        Page<Blog> blogList = iBlogService.findAll(pageable);
-//        model.addAttribute("blog", blogList);
-//        model.addAttribute("categoryList", iCategoryService.findAll());
-//        return "index";
-//    }
+
     @GetMapping("/bl")
     public String showListBlog( Model model) {
         model.addAttribute("blog", iBlogService.searchByTittle());
