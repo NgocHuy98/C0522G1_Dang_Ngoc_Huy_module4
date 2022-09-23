@@ -40,7 +40,7 @@ public class LibraryController {
     }
 
     @GetMapping("/{id}/edit")
-    public String borrow(@PathVariable int id, Model model) throws Exception {
+    public String getBorrow(@PathVariable int id, Model model) throws Exception {
         Library library = iLibraryService.findById(id);
 
         if (library.getAmount() == 0) {
@@ -53,7 +53,7 @@ public class LibraryController {
     }
 
     @PostMapping("/edit")
-    public String showBorrow(@ModelAttribute Library library, RedirectAttributes redirect) {
+    public String getShowBorrow(@ModelAttribute Library library, RedirectAttributes redirect) {
         library.setAmount(library.getAmount() - 1);
         iLibraryService.save(library);
         redirect.addFlashAttribute("message", "Borrow book successfully! "
@@ -62,7 +62,7 @@ public class LibraryController {
     }
 
     @GetMapping("/{id}/update")
-    public String pay(@PathVariable int id, Model model) {
+    public String getPay(@PathVariable int id, Model model) {
         Library library = iLibraryService.findById(id);
         model.addAttribute("library", library);
         return "update";
@@ -70,7 +70,7 @@ public class LibraryController {
     }
 
     @PostMapping("/update")
-    public String showPay(@ModelAttribute Library library, RedirectAttributes redirect) {
+    public String getShowPay(@ModelAttribute Library library, RedirectAttributes redirect) {
         library.setAmount(library.getAmount() + 1);
         iLibraryService.update(library);
         redirect.addFlashAttribute("message", "Pay book successfully! "

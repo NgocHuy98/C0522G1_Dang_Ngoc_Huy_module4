@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Aspect
 public class LibraryAspect {
     int count = 0;
-    @Pointcut("within(com.example.borrow_book.*)")
+    @Pointcut("within(com.example.borrow_book.controller.LibraryController*)")
     public void allMethodPointCut(){
     }
 
@@ -18,7 +18,7 @@ public class LibraryAspect {
     public void beforeCallMethod(JoinPoint joinPoint){
         System.out.printf("Start method name : "
         +joinPoint.getSignature().getName()
-        +"Time: " + LocalDateTime.now());
+        +" Time: " + LocalDateTime.now());
     }
 
     @AfterReturning("allMethodPointCut()")
@@ -26,16 +26,17 @@ public class LibraryAspect {
         count++;
         System.out.printf("End method name : "
                 +joinPoint.getSignature().getName()
-                +"Time: " + LocalDateTime.now()+" Number of interactions " +count);
+                +" Time: " + LocalDateTime.now()+" Number of interactions " +count);
     }
 
-    @Pointcut("within( *com.example.borrow_book.Librarycontroller.*)")
+    @Pointcut("execution(* com.example.borrow_book.controller.LibraryController.get*(..))")
     public void payAndBorrowMethodPointCut() {
     }
 
     @After("payAndBorrowMethodPointCut()")
     public void afterPayAndBorrowMethod(JoinPoint joinPoint) {
-        System.err.println("Method name: " + joinPoint.getSignature().getName() + " | Time: " + LocalDateTime.now());
+        System.err.println("Method name: " + joinPoint.getSignature().getName() + " | Time: " + LocalDateTime.now()
+        );
     }
 
 
