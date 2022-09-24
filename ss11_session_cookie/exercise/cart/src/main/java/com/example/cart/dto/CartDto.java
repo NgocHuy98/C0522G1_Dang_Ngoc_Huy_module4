@@ -42,4 +42,14 @@ public class CartDto {
         }
         return pay;
     }
+
+    public void minusCart(ProductDto productDto) {
+        if (productMap.containsKey(productDto)) {
+            Integer currentValue = productMap.get(productDto);
+
+            if (currentValue > 1)
+                productMap.replace(productDto, currentValue - 1);
+        }
+
+    }
 }

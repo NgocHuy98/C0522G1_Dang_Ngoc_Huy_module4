@@ -91,5 +91,16 @@ public class ProductController {
         return "redirect:/cart";
     }
 
+    @GetMapping("/minus/{id}")
+    public String minusCart(@PathVariable int id, @SessionAttribute("cart") CartDto cart) {
+        Optional<Product> productDetail = iProductService.findById(id);
 
+        if (productDetail.isPresent()) {
+            ProductDto productDto = new ProductDto();
+            BeanUtils.copyProperties(productDetail.get(), productDto);
+            cart.minusCart(productDto);
+        }
+
+        return "redirect:/cart";
+    }
 }

@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e006cb0d-8709-44de-9ead-b4190ba39ad8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/controller/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/dto/CartDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/dto/ProductDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/repository/IProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/service/impl/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/cart/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/dto/CartDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/dto/CartDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/cart/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/cart/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_data_binding_form/practice/spring-user-model" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_data_binding_form/practice/spring-user-model" afterDir="false" />
@@ -58,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ss8_validate/exercise/validate_music" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -85,6 +76,7 @@
       <workItem from="1663817662979" duration="14210000" />
       <workItem from="1663860457119" duration="2003000" />
       <workItem from="1663895876617" duration="7493000" />
+      <workItem from="1664006561286" duration="419000" />
     </task>
     <servers />
   </component>
