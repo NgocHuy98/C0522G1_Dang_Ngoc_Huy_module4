@@ -5,10 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e006cb0d-8709-44de-9ead-b4190ba39ad8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/dto/CartDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/java/com/example/cart/dto/CartDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/cart/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_session_cookie/exercise/cart/src/main/resources/templates/cart/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/BlogApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/controller/ApiBlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/controller/ApiCategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/controller/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/dto/BlogDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/service/impl/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend/src/main/java/com/example/blog_extend/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/BlogExtendApiApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/controller/ApiBlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/controller/ApiCategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/controller/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/dto/BlogDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/service/impl/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/java/com/example/blog_extend_api/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss12_webservice_restfull_exercise/blog_extend_api/src/test/java/com/example/blog_extend_api/BlogExtendApiApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss3_data_binding_form/practice/spring-user-model" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss3_data_binding_form/practice/spring-user-model" afterDir="false" />
@@ -77,6 +110,7 @@
       <workItem from="1663860457119" duration="2003000" />
       <workItem from="1663895876617" duration="7493000" />
       <workItem from="1664006561286" duration="419000" />
+      <workItem from="1664176058702" duration="93000" />
     </task>
     <servers />
   </component>
