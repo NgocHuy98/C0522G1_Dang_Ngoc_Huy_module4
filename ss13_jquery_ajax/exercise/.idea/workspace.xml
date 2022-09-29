@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2ed8ff40-be73-497b-ac50-8ac79951fb6b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/controller/ApiBlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/controller/ApiCategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/dto/BlogDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/repository/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/ICategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/impl/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/impl/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_webstom/jquery/jquery-3.5.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/blog_webstom/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss1_spring_mvc/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss1_spring_mvc/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2_spring_controller/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3_data_binding_form/practice/spring-user-model" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3_data_binding_form/practice/spring-user-model" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FQWOgUKzyttnoBuZe5iz4J5Fox" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/modul4/C0522G1_Dang_Ngoc_Huy_module4/case_study/furama_system&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\modul4\C0522G1_Dang_Ngoc_Huy_module4\ss13_jquery_ajax\exercise\blog\blog_webstom" />
+      <recent name="G:\modul4\C0522G1_Dang_Ngoc_Huy_module4\ss13_jquery_ajax\exercise\blog_westom" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ed8ff40-be73-497b-ac50-8ac79951fb6b" name="Changes" comment="" />
+      <created>1664424757333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664424757333</updated>
+      <workItem from="1664424758631" duration="580000" />
+      <workItem from="1664425358974" duration="11777000" />
+      <workItem from="1664449790924" duration="2663000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -19,6 +19,7 @@ public class CustomerController {
     @Autowired
     private ICustomerTypeService iCustomerTypeService;
 
+
     @GetMapping
     public String home() {
         return "home";
@@ -78,6 +79,7 @@ public class CustomerController {
 
     @GetMapping("/{id}/view")
     public String view(@PathVariable int id, Model model) {
+        model.addAttribute("customerType",iCustomerTypeService.findAll());
         model.addAttribute("customer", iCustomerService.findById(id));
         return "/customer/view";
     }
