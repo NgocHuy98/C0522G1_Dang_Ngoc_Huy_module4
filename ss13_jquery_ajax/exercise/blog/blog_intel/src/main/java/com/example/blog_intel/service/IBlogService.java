@@ -13,4 +13,6 @@ public interface IBlogService {
     List<Blog> findAll();
 
     List<Blog> findBlog(String search);
+
+    void remove(int id);
 }

@@ -33,5 +33,10 @@ public class BlogService implements IBlogService {
         return iBlogRepository.findBlog(search);
     }
 
+    @Override
+    public void remove(int id) {
+        iBlogRepository.deleteById(id);
+    }
+
 
 }
