@@ -68,7 +68,7 @@
 
         $("#more").click(function () {
             $("tbody").empty();
-            let more = $(this).val();
+
 
             $.ajax({
                 url: "http://localhost:8080/api/blog/list/",
@@ -97,6 +97,7 @@
 
 
         $("#search").click(function () {
+            let searchName = $("#clickSearch").val();
             $("tbody").empty();
             $.ajax({
                 url: "http://localhost:8080/api/blog/search?search=" + searchName,
