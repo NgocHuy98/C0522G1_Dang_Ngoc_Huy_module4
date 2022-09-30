@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed8ff40-be73-497b-ac50-8ac79951fb6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/model/AppRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/model/AppUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/model/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/repository/AppUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/until/EncrytedPasswordUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/java/com/example/exercise/until/WebUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/403Page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/_menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/adminPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/loginPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/logoutSuccessfulPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/userInfoPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/templates/welcomePage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/controller/ApiBlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/controller/ApiBlogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/blog_webstom/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog_webstom/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss14_spring_security/exercise/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss14_spring_security/exercise/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ss1_spring_mvc/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss1_spring_mvc/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2_spring_controller/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ss3_data_binding_form/practice/spring-user-model" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3_data_binding_form/practice/spring-user-model" afterDir="false" />
@@ -87,6 +69,7 @@
       <workItem from="1664463973805" duration="3641000" />
       <workItem from="1664472753933" duration="3662000" />
       <workItem from="1664500680341" duration="9217000" />
+      <workItem from="1664544130054" duration="3400000" />
     </task>
     <servers />
   </component>

@@ -4,124 +4,82 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-
 </head>
 <body>
 <h1>Blog list</h1>
 
-<input type="search" name="search" placeholder="search name..." id="clickSearch">
-<button id="search" type="submit" class="btn btn-dark">Search</button>
+<input type="search" name="search" placeholder="search name..." id="search">
+<button id="clickSearch" type="submit" class="btn btn-dark">Search</button>
 <button id="more" type="submit" class="btn btn-dark">More</button>
 
+    <table class="table" >
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tittle</th>
+            <th>Body</th>
+            <th>Author</th>
+            <th>Date Writing</th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td >
+                <span>Loading...</span>
+            </td>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Tittle</th>
-        <th>Body</th>
-        <th>Author</th>
-        <th>Date Writing</th>
-        <th>Category</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td scope="row">
-            <span>Loading...</span>
-        </td>
+        </tr>
 
-    </tr>
+        </tbody>
+    </table>
 
-    </tbody>
-</table>
+
 </body>
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script>
-    $(document).ready(function () {
-
-        let count = 3;
-        setTimeout(function () {
-            $("tbody").empty();
-            $.ajax({
-                url: "http://localhost:8080/api/blog/list/",
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
-                    console.log(data);
-
-                    let tr = [];
-                    for (let i = 0; i < count; i++) {
-                        tr.push("<tr>");
-                        tr.push("<td>" + data[i].id + "</td>")
-                        tr.push("<td>" + data[i].tittle + "</td>")
-                        tr.push("<td>" + data[i].body + "</td>")
-                        tr.push("<td>" + data[i].author + "</td>")
-                        tr.push("<td>" + data[i].dateWriting + "</td>")
-                        tr.push("<td>" + data[i].category.name + "</td>")
-                        tr.push("</tr>");
-                    }
-                    $("table").append(tr.join(""));
+    function display(searchName, more) {
+        $("tbody").empty();
+        $.ajax({
+            url: "http://localhost:8080/api/blog/search?search=" + searchName,
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                let tr = [];
+                let discount = 3 * more;
+                if (discount > data.length) {
+                    discount = data.length;
                 }
-            })
-        }, 2000)
+                for (let i = 0; i < discount; i++) {
+                    tr.push("<tr>");
+                    tr.push("<td>" + data[i].id + "</td>")
+                    tr.push("<td>" + data[i].tittle + "</td>")
+                    tr.push("<td>" + data[i].body + "</td>")
+                    tr.push("<td>" + data[i].author + "</td>")
+                    tr.push("<td>" + data[i].dateWriting + "</td>")
+                    tr.push("<td>" + data[i].category.name + "</td>")
+                    tr.push("</tr>");
+                }
+                $("table").append(tr.join(""));
+            }
+        })
+
+    }
+
+    $(document).ready(function () {
+        let nameSearch = "";
+        let more = 1;
+        display(nameSearch, more);
 
         $("#more").click(function () {
-            $("tbody").empty();
-
-
-            $.ajax({
-                url: "http://localhost:8080/api/blog/list/",
-                type: "GET",
-                dataTypes: "json",
-                success: function (data) {
-                    let tr = [];
-                    count += 2;
-                    for (let i = 0; i < count; i++) {
-                        tr.push("<tr>");
-                        tr.push("<td>" + data[i].id + "</td>")
-                        tr.push("<td>" + data[i].tittle + "</td>")
-                        tr.push("<td>" + data[i].body + "</td>")
-                        tr.push("<td>" + data[i].author + "</td>")
-                        tr.push("<td>" + data[i].dateWriting + "</td>")
-                        tr.push("<td>" + data[i].category.name + "</td>")
-                        tr.push("</tr>");
-                        if(count>data.length){
-                            count = data.length;
-                        }
-                    }
-                    $("table").append(tr.join(""));
-                }
-            })
+            more++;
+            display(nameSearch, more);
         })
 
-
-        $("#search").click(function () {
-            let searchName = $("#clickSearch").val();
-            $("tbody").empty();
-            $.ajax({
-                url: "http://localhost:8080/api/blog/search?search=" + searchName,
-                type: "GET",
-                dataTypes: "json",
-                success: function (data) {
-                    let tr = [];
-                    for (let i = 0; i < data.length; i++) {
-                        tr.push("<tr>");
-                        tr.push("<td>" + data[i].id + "</td>")
-                        tr.push("<td>" + data[i].tittle + "</td>")
-                        tr.push("<td>" + data[i].body + "</td>")
-                        tr.push("<td>" + data[i].author + "</td>")
-                        tr.push("<td>" + data[i].dateWriting + "</td>")
-                        tr.push("<td>" + data[i].category.name + "</td>")
-                        tr.push("</tr>");
-                    }
-                    $("table").append(tr.join(""));
-                }
-            })
+        $("#clickSearch").click(function () {
+            nameSearch = $("#search").val();
+            display(nameSearch, more);
         })
-
     })
-
-
 </script>
 </html>

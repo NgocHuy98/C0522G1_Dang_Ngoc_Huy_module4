@@ -2,7 +2,6 @@ package com.example.blog_intel.controller;
 
 import com.example.blog_intel.model.Blog;
 import com.example.blog_intel.service.IBlogService;
-import com.example.blog_intel.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class ApiBlogController {
     @Autowired
     private IBlogService iBlogService;
 
-    @GetMapping("/list")
+    @GetMapping
     public ResponseEntity<List<Blog>> findAll() {
         List<Blog> blogs = iBlogService.findAll();
         if (blogs.isEmpty()) {
