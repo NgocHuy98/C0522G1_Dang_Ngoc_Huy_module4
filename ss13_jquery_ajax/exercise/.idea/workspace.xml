@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed8ff40-be73-497b-ac50-8ac79951fb6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/blog/blog_webstom/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/blog_webstom/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/blog_webstom/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/blog_webstom/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/controller/SmartphoneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/model/SmartPhone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/repository/ISmartPhoneRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/service/ISmartPhoneService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/service/impl/SmartPhoneService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phone_webstom/jquery/jquery-3.5.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/smart_phone/phone_webstom/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/controller/ApiBlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/controller/ApiBlogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/IBlogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/impl/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog_intel/src/main/java/com/example/blog_intel/service/impl/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/controller/SmartphoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/smart_phone/phon_intel/src/main/java/com/example/phon_intel/controller/SmartphoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_phone/phone_webstom/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/smart_phone/phone_webstom/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ss1_spring_mvc/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss1_spring_mvc/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss2_spring_controller/practice/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ss3_data_binding_form/practice/spring-user-model" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3_data_binding_form/practice/spring-user-model" afterDir="false" />
@@ -80,7 +68,7 @@
       <workItem from="1664449790924" duration="2966000" />
       <workItem from="1664463973805" duration="3641000" />
       <workItem from="1664472753933" duration="3662000" />
-      <workItem from="1664500680341" duration="4642000" />
+      <workItem from="1664500680341" duration="6137000" />
     </task>
     <servers />
   </component>
