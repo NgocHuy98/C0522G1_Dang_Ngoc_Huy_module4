@@ -57,12 +57,50 @@
         <td th:text="${row.email}"></td>
         <td th:text="${row.address}"></td>
 
-        <td><a th:href="@{/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
-        <td><a th:href="@{/{id}/delete(id=${row.id})}" class="btn btn-danger">delete</a></td>
-        <td><a th:href="@{/{id}/view(id=${row.id})}" class="btn btn-success">view</a></td>
+        <td><a th:href="@{/{id}/customer/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
+        <td>
+            <button th:attr="onclick=|customerDelete('${row.id}', '${row.name}')|"
+                    class="btn btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+            <span class="btn btn-info">Delete</span>
+            </button>
+        </td>
+
+        <td><a th:href="@{/{id}/customer/view(id=${row.id})}" class="btn btn-success">view</a></td>
     </tr>
     </tbody>
 </table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/customer/delete" method="get">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">You Want To Delete?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" hidden name="idDelete" id="idDelete">
+                    <input type="text" hidden name="action" value="delete">
+                    <strong>Customer: </strong>
+                    <span id="nameDelete"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function customerDelete(id, name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText = name;
+
+    }
+</script>
 
 <div>
     <a th:href="@{'/customer'(page=${customer.number - 1},search=${search})}" th:if="${customer.hasPrevious()}">Previous</a>

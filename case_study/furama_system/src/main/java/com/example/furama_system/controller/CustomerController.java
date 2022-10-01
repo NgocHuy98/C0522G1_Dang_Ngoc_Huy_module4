@@ -1,8 +1,8 @@
 package com.example.furama_system.controller;
 
 import com.example.furama_system.model.Customer;
-import com.example.furama_system.service.ICustomerService;
-import com.example.furama_system.service.ICustomerTypeService;
+import com.example.furama_system.service.customer.ICustomerService;
+import com.example.furama_system.service.customer.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -28,8 +28,8 @@ public class CustomerController {
 
     @GetMapping("/customer")
     public String indexCustomer(@PageableDefault(value = 3, sort = "name") Pageable pageable,
-                                @RequestParam(defaultValue = "") String search, Model model) {
-        model.addAttribute("customer", iCustomerService.findByNameContaining(search, pageable));
+                                @RequestParam(value = "search",defaultValue = "") String search, Model model) {
+        model.addAttribute("customer", iCustomerService.findAllByKey(search, pageable));
         model.addAttribute("customerType", iCustomerTypeService.findAll());
         model.addAttribute("search", search);
         return "customer/index";
@@ -38,7 +38,7 @@ public class CustomerController {
     @GetMapping("/customer/create")
     public String create(Model model) {
         model.addAttribute("customer", new Customer());
-        model.addAttribute("customerType", iCustomerService.findAll());
+        model.addAttribute("customerType", iCustomerTypeService.findAll());
         return "customer/create";
     }
 
@@ -49,7 +49,7 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("/{id}/customer/edit")
     public String edit(@PathVariable int id, Model model) {
         model.addAttribute("customer", iCustomerService.findById(id));
         model.addAttribute("customerType", iCustomerTypeService.findAll());
@@ -57,27 +57,22 @@ public class CustomerController {
     }
 
 
-    @PostMapping("/update")
+    @PostMapping("/customer/updater")
     public String update(@ModelAttribute Customer customer, RedirectAttributes redirect) {
         iCustomerService.update(customer);
         redirect.addFlashAttribute("message", "Update customer successfully!");
         return "redirect:/customer";
     }
 
-    @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
-        model.addAttribute("customer", iCustomerService.findById(id));
-        return "/customer/delete";
-    }
 
-    @PostMapping("/delete")
-    public String delete(@ModelAttribute Customer customer, RedirectAttributes redirect) {
-        iCustomerService.remove(customer.getId());
-        redirect.addFlashAttribute("message", "Removed customer successfully!");
+    @GetMapping("/customer/delete")
+    public String delete(@RequestParam(value = "idDelete")int id, RedirectAttributes redirect) {
+        iCustomerService.remove(id);
+        redirect.addFlashAttribute("success", "Removed customer successfully!");
         return "redirect:/customer";
     }
 
-    @GetMapping("/{id}/view")
+    @GetMapping("/{id}/customer/view")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("customerType",iCustomerTypeService.findAll());
         model.addAttribute("customer", iCustomerService.findById(id));

@@ -1,4 +1,4 @@
-package com.example.furama_system.service;
+package com.example.furama_system.service.customer;
 
 import com.example.furama_system.model.CustomerType;
 

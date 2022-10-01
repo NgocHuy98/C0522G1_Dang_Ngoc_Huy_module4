@@ -1,10 +1,10 @@
-package com.example.furama_system.repository;
+package com.example.furama_system.repository.customer;
 
 import com.example.furama_system.model.CustomerType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ICustomerTypeRepository extends JpaRepository<CustomerType,Integer> {
+public interface ICustomerTypeRepository extends JpaRepository<CustomerType, Integer> {
 
 }

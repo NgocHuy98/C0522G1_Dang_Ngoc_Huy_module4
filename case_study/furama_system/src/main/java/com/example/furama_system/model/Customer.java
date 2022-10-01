@@ -16,6 +16,7 @@ public class Customer {
     private String phone;
     private String email;
     private String address;
+    private boolean isDelete;
 
     @ManyToOne
     @JoinColumn(name="customerType_id",referencedColumnName = "id")
@@ -38,6 +39,14 @@ public class Customer {
         this.email = email;
         this.address = address;
         this.customerType = customerType;
+    }
+
+    public boolean isDelete() {
+        return isDelete;
+    }
+
+    public void setDelete(boolean delete) {
+        isDelete = delete;
     }
 
     public int getId() {

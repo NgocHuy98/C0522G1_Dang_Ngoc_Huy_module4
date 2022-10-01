@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+</head>
+<body>
+<div th:replace="/layout::nav"></div>
+<h2 class="text-center">Facility List</h2>
+
+<p>
+    <a th:href="@{/facility/create}" class="btn btn-secondary">
+        Add new facility
+    </a>
+</p>
+<div class="notify">
+  <div th:if="${message}">
+    <span th:text="${message}"></span>
+  </div>
+</div>
+
+<form >
+    <input type="search" name="search" placeholder="search name...">
+    <button type="submit" class="btn btn-dark">Search</button>
+</form>
+
+<!--<form>-->
+<!--    <input placeholder="Search by Title..." name="search" type="text"/>-->
+<!--    <input type="submit" value="Search"/>-->
+<!--</form>-->
+
+<table id = "furamas">
+    <thead>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Area</th>
+        <th>Cost</th>
+        <th>Max people</th>
+        <th>Facility Type</th>
+        <th>Rent Type</th>
+        <th>Standard Room</th>
+        <th>Description</th>
+        <th>Pool Area</th>
+        <th>Floors</th>
+        <th>Facility Free</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${facility}">
+        <td th:text="${rowStat.count}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.area}"></td>
+        <td th:text="${row.cost}"></td>
+        <td th:text="${row.maxPeople}"></td>
+        <td th:text="${row.facilityType.name}"></td>
+        <td th:text="${row.rentType.name}"></td>
+        <td th:text="${row.standardRoom}"></td>
+        <td th:text="${row.descriptionOtherConvenience}"></td>
+        <td th:text="${row.poolArea}"></td>
+        <td th:text="${row.numberOfFloors}"></td>
+        <td th:text="${row.facilityFree}"></td>
+
+
+        <td><a th:href="@{/{id}/facility/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
+        <td><a th:href="@{/{id}/facility/delete(id=${row.id})}" class="btn btn-danger">delete</a></td>
+        <td><a th:href="@{/{id}/facility/view(id=${row.id})}" class="btn btn-success">view</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div>
+    <a th:href="@{'/facility'(page=${facility.number - 1},search=${search})}" th:if="${facility.hasPrevious()}">Previous</a>
+    <span th:text="${facility.number + 1}"></span>/<span th:text="${facility.totalPages}"></span>
+    <a th:href="@{'/facility'(page=${facility.number + 1},search=${search})}" th:if="${facility.hasNext()}">Next</a>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

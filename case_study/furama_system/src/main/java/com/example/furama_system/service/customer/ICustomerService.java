@@ -1,4 +1,4 @@
-package com.example.furama_system.service;
+package com.example.furama_system.service.customer;
 
 import com.example.furama_system.model.Customer;
 import org.springframework.data.domain.Page;
@@ -9,7 +9,7 @@ import java.util.List;
 public interface ICustomerService {
 
 
-     Page<Customer> findByNameContaining(String search, Pageable pageable);
+     Page<Customer> findAllByKey(String search, Pageable pageable);
 
      List<Customer> findAll();
 

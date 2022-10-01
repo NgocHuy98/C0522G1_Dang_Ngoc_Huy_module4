@@ -15,6 +15,7 @@ public class Employee {
     private String phoneNumber;
     private String email;
     private String address;
+    private boolean isDelete;
     @ManyToOne
     @JoinColumn(name = "position_id",referencedColumnName = "id")
     private Position position;
@@ -60,6 +61,14 @@ public class Employee {
 
     public String getNameEmployee() {
         return nameEmployee;
+    }
+
+    public boolean isDelete() {
+        return isDelete;
+    }
+
+    public void setDelete(boolean delete) {
+        isDelete = delete;
     }
 
     public void setNameEmployee(String nameEmployee) {

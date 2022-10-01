@@ -139,7 +139,7 @@
                 <td class="text-center">
                     <a href="/employee?action=delete&id=${facility.id}" data-bs-toggle="modal"
                        data-bs-target="#exampleModal"
-                       onclick="deleteCustomer('${facility.getId()}','${facility.getNameEmployee()}')">
+                       onclick="deleteEmployee('${facility.getId()}','${facility.getNameEmployee()}')">
                         <span class="fa-solid fa-person-circle-minus text-danger h4 m-auto"></span>
                     </a>
                 </td>
