@@ -4,72 +4,79 @@
 
 </head>
 <body>
+<div class="container-fluid">
 <div th:replace="/layout::nav"></div>
-<h2 class="text-center">Customer List</h2>
+<h2>Customer List</h2>
 
-<p>
-    <a th:href="@{/customer/create}" class="btn btn-secondary">
-        Add new customer
-    </a>
-</p>
-<div class="notify">
-  <div th:if="${message}">
-    <span th:text="${message}"></span>
-  </div>
+
+<div class="mx-lg-2" >
+    <div class="row">
+        <div class="col-2">
+            <p>
+                <a th:href="@{/customer/create}" class="btn btn-outline-danger">
+                    Add new customer
+                </a>
+            </p>
+        </div>
+
+        <div class="col-3 notify"  >
+            <div th:if="${message}">
+                <span th:text="${message}" class="btn btn-outline-success"></span>
+            </div>
+        </div>
+        <div class="col-7">
+            <form style="float: right">
+                <input type="search" name="search" placeholder="search name..." class="btn-outline-dark">
+                <button type="submit" class="btn btn-dark">Search</button>
+            </form>
+    </div>
+
+    </div>
+
+
+    <table id="furamas" >
+        <thead>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Customer Type</th>
+            <th>Date of birth</th>
+            <th>Gender</th>
+            <th>ID card</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row,rowStat : ${customer}">
+            <td th:text="${rowStat.count}"></td>
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.customerType.name}"></td>
+            <td th:text="${row.dateOfBirth}"></td>
+            <td th:text="${row.gender}"></td>
+            <td th:text="${row.idCard}"></td>
+            <td th:text="${row.phone}"></td>
+            <td th:text="${row.email}"></td>
+            <td th:text="${row.address}"></td>
+
+            <td><a th:href="@{/customer/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
+            <td>
+                <button th:attr="onclick=|customerDelete('${row.id}', '${row.name}')|"
+                        class="btn btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                    <span class="btn btn-info">Delete</span>
+                </button>
+            </td>
+
+            <td><a th:href="@{/customer/{id}/view(id=${row.id})}" class="btn btn-success">view</a></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-
-<form >
-    <input type="search" name="search" placeholder="search name...">
-    <button type="submit" class="btn btn-dark">Search</button>
-</form>
-
-<!--<form>-->
-<!--    <input placeholder="Search by Title..." name="search" type="text"/>-->
-<!--    <input type="submit" value="Search"/>-->
-<!--</form>-->
-
-<table id = "furamas">
-    <thead>
-    <tr>
-        <th>Index</th>
-        <th>Name</th>
-        <th>Customer Type</th>
-        <th>Date of birth</th>
-        <th>Gender</th>
-        <th>ID card</th>
-        <th>Phone number</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>View</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="row,rowStat : ${customer}">
-        <td th:text="${rowStat.count}"></td>
-        <td th:text="${row.name}"></td>
-        <td th:text="${row.customerType.name}"></td>
-        <td th:text="${row.dateOfBirth}"></td>
-        <td th:text="${row.gender}"></td>
-        <td th:text="${row.idCard}"></td>
-        <td th:text="${row.phone}"></td>
-        <td th:text="${row.email}"></td>
-        <td th:text="${row.address}"></td>
-
-        <td><a th:href="@{/{id}/customer/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
-        <td>
-            <button th:attr="onclick=|customerDelete('${row.id}', '${row.name}')|"
-                    class="btn btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-            <span class="btn btn-info">Delete</span>
-            </button>
-        </td>
-
-        <td><a th:href="@{/{id}/customer/view(id=${row.id})}" class="btn btn-success">view</a></td>
-    </tr>
-    </tbody>
-</table>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -86,8 +93,8 @@
                     <span id="nameDelete"></span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Delete</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </form>
@@ -102,11 +109,12 @@
     }
 </script>
 
-<div>
-    <a th:href="@{'/customer'(page=${customer.number - 1},search=${search})}" th:if="${customer.hasPrevious()}">Previous</a>
+<div id="page">
+    <a th:href="@{'/customer'(page=${customer.number - 1},search=${search})}"
+       th:if="${customer.hasPrevious()}">Previous</a>
     <span th:text="${customer.number + 1}"></span>/<span th:text="${customer.totalPages}"></span>
     <a th:href="@{'/customer'(page=${customer.number + 1},search=${search})}" th:if="${customer.hasNext()}">Next</a>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+</div>
 </body>
 </html>

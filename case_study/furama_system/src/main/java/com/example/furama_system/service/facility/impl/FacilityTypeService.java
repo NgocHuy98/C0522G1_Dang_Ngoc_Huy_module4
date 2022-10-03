@@ -1,4 +1,4 @@
-package com.example.furama_system.service.impl.facility;
+package com.example.furama_system.service.facility.impl;
 
 import com.example.furama_system.model.FacilityType;
 import com.example.furama_system.repository.facility.IFacilityTypeRepository;

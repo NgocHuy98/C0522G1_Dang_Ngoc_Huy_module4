@@ -2,16 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<h3>Edit facility</h3>
-<p>
-  <a th:href="@{/facility}">
-    Back to facility list
-  </a>
-</p>
-<div id="form">
-  <form action="#" th:action="@{/facility/update}" th:object="${facility}"
+<div class="head">
+  <h3>Edit facility</h3>
+  <p>
+    <a th:href="@{/facility}">
+      Back to facility list
+    </a>
+  </p>
+</div>
+<div class=" d-flex justify-content-center">
+  <form class="mx-5 px-5 pt-3 w-50 border border-2 border-success p-3 bg-info rounded " action="#" th:action="@{/facility/update}" th:object="${facility}"
         method="POST" novalidate="novalidate">
     <input type="hidden" th:field="*{id}"/>
+
+    <div>
+      <label>Facility Type</label>
+      <p class="option">
+        <select class="form-control" th:field="*{facilityType}" onchange="changeForm(this)">
+          <option th:each="item: ${facilityType}" th:text="${item.name}" th:value="${item.id}"></option>
+        </select>
+      </p>
+
+    </div>
     <div>
       <label>Name</label>
       <input type="text" th:field="*{name}"/>
@@ -30,17 +42,12 @@
     </div>
 
     <div>
-      <label>Facility Type</label>
-      <select th:field="*{facilityType}">
-        <option th:each="item: ${facilityType}" th:text="${item.name}" th:value="${item.id}"></option>
-      </select>
-
-    </div>
-    <div>
       <label>Rent Type</label>
-      <select th:field="*{rentType}">
-        <option th:each="item: ${rentType}" th:text="${item.name}" th:value="${item.id}"></option>
-      </select>
+      <p class="option">
+        <select class="form-control" th:field="*{rentType}">
+          <option th:each="item: ${rentType}" th:text="${item.name}" th:value="${item.id}"></option>
+        </select>
+      </p>
 
     </div>
 
@@ -68,6 +75,44 @@
     <input type="submit" value="Edit"/>
   </form>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+
+<script>
+  function changeForm(type) {
+    let selectForm = type.value;
+    switch (selectForm) {
+      case "1":
+        document.getElementById("standardRoom").style.display = "block";
+        document.getElementById("descriptionOtherConvenience").style.display = "block";
+        document.getElementById("poolArea").style.display = "block";
+        document.getElementById("numberOfFloors").style.display = "block";
+        document.getElementById("facilityFree").style.display = "none";
+        break;
+      case "2":
+        document.getElementById("standardRoom").style.display = "block";
+        document.getElementById("descriptionOtherConvenience").style.display = "block";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloors").style.display = "block";
+        document.getElementById("facilityFree").style.display = "none";
+        break;
+      case "3":
+        document.getElementById("standardRoom").style.display = "none";
+        document.getElementById("descriptionOtherConvenience").style.display = "none";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloors").style.display = "none";
+        document.getElementById("facilityFree").style.display = "block";
+        break;
+      default:
+        document.getElementById("standardRoom").style.display = "none";
+        document.getElementById("descriptionOtherConvenience").style.display = "none";
+        document.getElementById("poolArea").style.display = "none";
+        document.getElementById("numberOfFloors").style.display = "none";
+        document.getElementById("facilityFree").style.display = "none";
+        break;
+    }
+
+  }
+</script>
+
 </body>
+<footer th:replace="/layout :: footer"></footer>
 </html>

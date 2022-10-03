@@ -2,43 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ed8ff40-be73-497b-ac50-8ac79951fb6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/FacilityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/facility/IFacilityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/facility/IFacilityTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/facility/IRenTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/facility/IFacilityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/facility/IFacilityTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/facility/IRentTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/facility/FacilityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/facility/FacilityTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/facility/RentTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/ContractController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/dto/IContractDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/contract/IAttachFacilityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/contract/IContractDetailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/contract/IContractRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/employee/IDivisionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/employee/IEducationDegreeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/employee/IEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/employee/IPositionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/contract/IAttachFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/contract/IContractDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/contract/IContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/contract/impl/AttachFacilityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/contract/impl/ContractDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/contract/impl/ContractService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/IEmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/IPositionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/impl/DivisionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/impl/EducationDegreeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/impl/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/impl/PositionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/CustomerTypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/customer/ICustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/ICustomerTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/customer/ICustomerTypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/customer/ICustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/ICustomerTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/customer/ICustomerTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/customer/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/CustomerTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/customer/CustomerTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/FacilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/controller/FacilityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/model/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/model/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/customer/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/customer/ICustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/facility/IFacilityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/repository/facility/IFacilityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/customer/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/customer/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/facility/IFacilityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/facility/IFacilityTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/IDivisionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/facility/IRentTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/employee/IEducationDegreeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/customer/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/customer/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/customer/CustomerTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/customer/impl/CustomerTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/facility/FacilityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/facility/FacilityTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/java/com/example/furama_system/service/impl/facility/RentTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/contract/list.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/delete.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/edit.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/indexType.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/customer/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/error-404.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/employee/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/facility/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case_study/furama_system/src/main/resources/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -108,6 +133,7 @@
       <workItem from="1664500680341" duration="9217000" />
       <workItem from="1664544130054" duration="3476000" />
       <workItem from="1664587192268" duration="1682000" />
+      <workItem from="1664759805848" duration="1475000" />
     </task>
     <servers />
   </component>

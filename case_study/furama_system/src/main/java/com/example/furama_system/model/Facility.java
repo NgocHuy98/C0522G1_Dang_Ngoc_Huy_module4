@@ -8,9 +8,13 @@ public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
     private String area;
+
     private String cost;
+
     private String maxPeople;
 
     @ManyToOne
@@ -22,13 +26,19 @@ public class Facility {
     private FacilityType facilityType;
 
     private String standardRoom;
+
     private String descriptionOtherConvenience;
+
     private String poolArea;
+
     private String numberOfFloors;
+
     private String facilityFree;
 
     @OneToMany(mappedBy = "facility")
     private Set<Contract> contractSet;
+
+    private boolean isDelete;
 
     public Facility() {
     }

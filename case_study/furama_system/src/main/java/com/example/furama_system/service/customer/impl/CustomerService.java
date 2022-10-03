@@ -1,4 +1,4 @@
-package com.example.furama_system.service.impl.customer;
+package com.example.furama_system.service.customer.impl;
 
 import com.example.furama_system.model.Customer;
 import com.example.furama_system.repository.customer.ICustomerRepository;
@@ -16,13 +16,8 @@ public class CustomerService implements ICustomerService {
     private ICustomerRepository iCustomerRepository;
 
     @Override
-    public Page<Customer> findAllByKey(String search, Pageable pageable) {
+    public Page<Customer> findAllByName(String search, Pageable pageable) {
         return iCustomerRepository.findAllByKey(search,pageable);
-    }
-
-    @Override
-    public List<Customer> findAll() {
-        return iCustomerRepository.findAll();
     }
 
     @Override
@@ -43,5 +38,10 @@ iCustomerRepository.save(customer);
     @Override
     public void remove(int id) {
 iCustomerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return iCustomerRepository.findAll();
     }
 }

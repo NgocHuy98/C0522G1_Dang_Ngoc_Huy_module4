@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+</head>
+<body>
+<div class="container-fluid">
+<div th:replace="/layout::nav"></div>
+<h2>Contract List</h2>
+<div class="mx-lg-2">
+    <div class="row">
+        <div class="col-2">
+            <p>
+                <a th:href="@{/contract/create}" class="btn btn-outline-danger">
+                    Add new contract
+                </a>
+            </p>
+        </div>
+
+        <div class="col-3 notify"  >
+            <div th:if="${message}">
+                <span th:text="${message}" class="btn btn-outline-success"></span>
+            </div>
+        </div>
+        <div class="col-7">
+            <form style="float: right">
+                <input type="search" name="search" placeholder="search name..." class="btn-outline-dark">
+                <button type="submit" class="btn btn-dark">Search</button>
+            </form>
+        </div>
+
+    </div>
+
+    <table id="furamas">
+        <thead>
+        <tr>
+            <th>Index</th>
+            <th>Facility</th>
+            <th>Customer</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Deposit</th>
+            <th>Total Money</th>
+            <th>Attach Facilities</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row,rowStat : ${contract}">
+            <td th:text="${rowStat.count}"></td>
+            <td th:text="${row.getFacilityName}"></td>
+            <td th:text="${row.getCustomerName}"></td>
+            <td th:text="${row.getStartDate}"></td>
+            <td th:text="${row.getEndDate}"></td>
+            <td th:text="${row.getDeposit}"></td>
+            <td th:text="${row.getTotal}"></td>
+           <td>
+               <button
+                       class="btn btn-primary btn-outline-secondary btn-sm" data-bs-toggle="modal"
+                       data-bs-target="#addContractdetail">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                       <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                   </svg>
+               </button>
+               <button
+                       class="btn btn-primary btn-outline-secondary btn-sm ms-3 px-3" data-bs-toggle="modal"
+                       data-bs-target="#showAttachFacility"><span class="text-light m-auto">List Attach Facility</span>
+               </button>
+           </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div id="page">
+    <a th:href="@{'/contract'(page=${contract.number - 1})}"
+       th:if="${contract.hasPrevious()}">Previous</a>
+    <span th:text="${contract.number + 1}"></span>/<span th:text="${contract.totalPages}"></span>
+    <a th:href="@{'/contract'(page=${contract.number + 1})}" th:if="${contract.hasNext()}">Next</a>
+</div>
+</div>
+
+</body>
+</html>

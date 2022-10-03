@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head">
+
 </head>
 <body>
 <div class="container-fluid">
 <div th:replace="/layout::nav"></div>
-<h2>Facility List</h2>
-<div class="mx-lg-2" >
+<h2>Employee List</h2>
+<div class="mx-lg-2">
     <div class="row">
         <div class="col-2">
             <p>
-                <a th:href="@{/facility/create}" class="btn btn-outline-danger">
+                <a th:href="@{/employee/create}" class="btn btn-outline-danger">
                     Add new customer
                 </a>
             </p>
@@ -35,63 +36,62 @@
         <tr>
             <th>Index</th>
             <th>Name</th>
-            <th>Area</th>
-            <th>Cost</th>
-            <th>Max people</th>
-            <th>Facility Type</th>
-            <th>Rent Type</th>
-            <th>Standard Room</th>
-            <th>Description</th>
-            <th>Pool Area</th>
-            <th>Floors</th>
-            <th>Facility Free</th>
+            <th>Date Of Birth</th>
+            <th>ID Card</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Position</th>
+            <th>Education Degree</th>
+            <th>Division</th>
             <th>Edit</th>
             <th>Delete</th>
             <th>View</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="row,rowStat : ${facility}">
+        <tr th:each="row,rowStat : ${employee}">
             <td th:text="${rowStat.count}"></td>
-            <td th:text="${row.name}"></td>
-            <td th:text="${row.area}"></td>
-            <td th:text="${row.cost}"></td>
-            <td th:text="${row.maxPeople}"></td>
-            <td th:text="${row.facilityType.name}"></td>
-            <td th:text="${row.rentType.name}"></td>
-            <td th:text="${row.standardRoom}"></td>
-            <td th:text="${row.descriptionOtherConvenience}"></td>
-            <td th:text="${row.poolArea}"></td>
-            <td th:text="${row.numberOfFloors}"></td>
-            <td th:text="${row.facilityFree}"></td>
+            <td th:text="${row.nameEmployee}"></td>
+            <td th:text="${row.dateOfBirth}"></td>
+            <td th:text="${row.idCard}"></td>
+            <td th:text="${row.salary}"></td>
+            <td th:text="${row.phoneNumber}"></td>
+            <td th:text="${row.email}"></td>
+            <td th:text="${row.address}"></td>
+            <td th:text="${row.position.name}"></td>
+            <td th:text="${row.educationDegree.name}"></td>
+            <td th:text="${row.division.name}"></td>
 
-
-            <td><a th:href="@{/facility/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
+            <td><a th:href="@{/employee/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
             <td>
-                <button th:attr="onclick=|customerDelete('${row.id}', '${row.name}')|"
+                <button th:attr="onclick=|customerDelete('${row.id}', '${row.nameEmployee}')|"
                         class="btn btn-sm" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
                     <span class="btn btn-info">Delete</span>
                 </button>
             </td>
-            <td><a th:href="@{/facility/{id}/view(id=${row.id})}" class="btn btn-success">view</a></td>
+            <td><a th:href="@{/employee/{id}/view(id=${row.id})}" class="btn btn-success">view</a></td>
         </tr>
         </tbody>
     </table>
 </div>
 
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/facility/delete" method="get">
+        <form action="/employee/delete" method="get">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">You Want To Delete?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="idDelete" id="idDelete">
+                    <input type="text" hidden name="idDelete" id="idDelete">
                     <input type="text" hidden name="action" value="delete">
-                    <strong>Facility: </strong>
+                    <strong>Employee: </strong>
                     <span id="nameDelete"></span>
                 </div>
                 <div class="modal-footer">
@@ -113,13 +113,12 @@
 
 
 <div id="page">
-    <a th:href="@{'/facility'(page=${facility.number - 1},search=${search})}"
-       th:if="${facility.hasPrevious()}">Previous</a>
-    <span th:text="${facility.number + 1}"></span>/<span th:text="${facility.totalPages}"></span>
-    <a th:href="@{'/facility'(page=${facility.number + 1},search=${search})}" th:if="${facility.hasNext()}">Next</a>
+    <a th:href="@{'/employee'(page=${employee.number - 1},search=${search})}"
+       th:if="${employee.hasPrevious()}">Previous</a>
+    <span th:text="${employee.number + 1}"></span>/<span th:text="${employee.totalPages}"></span>
+    <a th:href="@{'/employee'(page=${employee.number + 1},search=${search})}" th:if="${employee.hasNext()}">Next</a>
 </div>
 </div>
 
 </body>
-
 </html>

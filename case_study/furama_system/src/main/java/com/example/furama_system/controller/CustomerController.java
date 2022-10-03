@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/customer")
 
 public class CustomerController {
     @Autowired
@@ -21,35 +22,29 @@ public class CustomerController {
 
 
     @GetMapping
-    public String home() {
-        return "home";
-    }
-
-
-    @GetMapping("/customer")
     public String indexCustomer(@PageableDefault(value = 3, sort = "name") Pageable pageable,
                                 @RequestParam(value = "search",defaultValue = "") String search, Model model) {
-        model.addAttribute("customer", iCustomerService.findAllByKey(search, pageable));
+        model.addAttribute("customer", iCustomerService.findAllByName(search, pageable));
         model.addAttribute("customerType", iCustomerTypeService.findAll());
         model.addAttribute("search", search);
         return "customer/index";
     }
 
-    @GetMapping("/customer/create")
+    @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("customer", new Customer());
         model.addAttribute("customerType", iCustomerTypeService.findAll());
         return "customer/create";
     }
 
-    @PostMapping("/customer/create")
+    @PostMapping("/create")
     public String save(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
         iCustomerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Create new customer successfully!");
         return "redirect:/customer";
     }
 
-    @GetMapping("/{id}/customer/edit")
+    @GetMapping("/{id}/edit")
     public String edit(@PathVariable int id, Model model) {
         model.addAttribute("customer", iCustomerService.findById(id));
         model.addAttribute("customerType", iCustomerTypeService.findAll());
@@ -57,7 +52,7 @@ public class CustomerController {
     }
 
 
-    @PostMapping("/customer/updater")
+    @PostMapping("/update")
     public String update(@ModelAttribute Customer customer, RedirectAttributes redirect) {
         iCustomerService.update(customer);
         redirect.addFlashAttribute("message", "Update customer successfully!");
@@ -65,14 +60,14 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/customer/delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam(value = "idDelete")int id, RedirectAttributes redirect) {
         iCustomerService.remove(id);
         redirect.addFlashAttribute("success", "Removed customer successfully!");
         return "redirect:/customer";
     }
 
-    @GetMapping("/{id}/customer/view")
+    @GetMapping("/{id}/view")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("customerType",iCustomerTypeService.findAll());
         model.addAttribute("customer", iCustomerService.findById(id));

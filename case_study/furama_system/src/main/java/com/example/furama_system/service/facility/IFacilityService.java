@@ -4,6 +4,8 @@ import com.example.furama_system.model.Facility;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface IFacilityService {
     Page<Facility> findByNameContaining(String search, Pageable pageable);
 
@@ -14,4 +16,6 @@ public interface IFacilityService {
     void update(Facility facility);
 
     void remove(int id);
+
+    List<Facility> findAll();
 }

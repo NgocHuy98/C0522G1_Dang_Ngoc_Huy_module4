@@ -1,4 +1,4 @@
-package com.example.furama_system.service.impl.customer;
+package com.example.furama_system.service.customer.impl;
 
 import com.example.furama_system.model.CustomerType;
 import com.example.furama_system.repository.customer.ICustomerTypeRepository;

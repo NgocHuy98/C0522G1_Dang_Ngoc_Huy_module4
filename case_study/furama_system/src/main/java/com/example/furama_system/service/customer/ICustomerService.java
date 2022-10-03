@@ -9,9 +9,7 @@ import java.util.List;
 public interface ICustomerService {
 
 
-     Page<Customer> findAllByKey(String search, Pageable pageable);
-
-     List<Customer> findAll();
+     Page<Customer> findAllByName(String search, Pageable pageable);
 
      void save(Customer customer);
 
@@ -20,4 +18,6 @@ public interface ICustomerService {
      void update(Customer customer);
 
      void remove(int id);
+
+    List<Customer> findAll();
 }

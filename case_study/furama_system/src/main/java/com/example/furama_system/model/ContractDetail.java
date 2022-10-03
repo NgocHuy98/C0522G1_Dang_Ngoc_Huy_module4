@@ -22,6 +22,14 @@ public class ContractDetail {
     public ContractDetail() {
     }
 
+    public String getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(String isDelete) {
+        this.isDelete = isDelete;
+    }
+
     public ContractDetail(int id, Contract contract, AttachFacility attachFacility, int quantity, String isDelete) {
         this.id = id;
         this.contract = contract;
