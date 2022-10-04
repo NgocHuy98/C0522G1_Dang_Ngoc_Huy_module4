@@ -37,17 +37,18 @@ public class EmployeeController {
         model.addAttribute("position", iPositionService.findAll());
         model.addAttribute("degree", degreeService.findAll());
         model.addAttribute("search", search);
+        model.addAttribute("employees",new Employee());
         return "employee/index";
     }
 
-    @GetMapping("/create")
-    public String create(Model model) {
-        model.addAttribute("employee", new Employee());
-        model.addAttribute("division", iDivisionService.findAll());
-        model.addAttribute("position", iPositionService.findAll());
-        model.addAttribute("degree", degreeService.findAll());
-        return "employee/create";
-    }
+//    @GetMapping("/create")
+//    public String create(Model model) {
+//        model.addAttribute("employee", new Employee());
+//        model.addAttribute("division", iDivisionService.findAll());
+//        model.addAttribute("position", iPositionService.findAll());
+//        model.addAttribute("degree", degreeService.findAll());
+//        return "employee/create";
+//    }
 
     @PostMapping("/create")
     public String save(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes) {

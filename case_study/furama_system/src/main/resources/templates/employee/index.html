@@ -4,17 +4,16 @@
 
 </head>
 <body>
-<div class="container-fluid">
+
 <div th:replace="/layout::nav"></div>
 <h2>Employee List</h2>
-<div class="mx-lg-2">
+<div class="mx-lg-2 mt-1">
     <div class="row">
         <div class="col-2">
-            <p>
-                <a th:href="@{/employee/create}" class="btn btn-outline-danger">
-                    Add new customer
-                </a>
-            </p>
+            <button class="btn btn-sm" data-bs-toggle="modal"
+                    data-bs-target="#addEmployeeModal">
+                <span class="btn btn-success">Create</span>
+            </button>
         </div>
 
         <div class="col-3 notify"  >
@@ -38,16 +37,12 @@
             <th>Name</th>
             <th>Date Of Birth</th>
             <th>ID Card</th>
-            <th>Salary</th>
             <th>Phone</th>
             <th>Email</th>
             <th>Address</th>
             <th>Position</th>
-            <th>Education Degree</th>
-            <th>Division</th>
             <th>Edit</th>
             <th>Delete</th>
-            <th>View</th>
         </tr>
         </thead>
         <tbody>
@@ -56,15 +51,24 @@
             <td th:text="${row.nameEmployee}"></td>
             <td th:text="${row.dateOfBirth}"></td>
             <td th:text="${row.idCard}"></td>
-            <td th:text="${row.salary}"></td>
             <td th:text="${row.phoneNumber}"></td>
             <td th:text="${row.email}"></td>
             <td th:text="${row.address}"></td>
             <td th:text="${row.position.name}"></td>
-            <td th:text="${row.educationDegree.name}"></td>
-            <td th:text="${row.division.name}"></td>
 
-            <td><a th:href="@{/employee/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
+            <td>
+<!--                <button class="btn btn-sm" data-bs-toggle="modal"-->
+<!--                        data-bs-target="#editEmployeeModal">-->
+<!--                    <span class="btn btn-warning">Update</span>-->
+<!--                </button>-->
+
+                <button th:attr="onclick=|customerEdit('${row.id}', '${row.nameEmployee}','${row.dateOfBirth}','${row.salary}'
+                '${row.idCard}','${row.phoneNumber}','${row.email}','${row.address}','${row.position}','${row.educationDegree}','${row.division}')|"
+                        class="btn btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#editEmployeeModal">
+                    <span class="btn btn-info">Edit</span>
+                </button>
+            </td>
             <td>
                 <button th:attr="onclick=|customerDelete('${row.id}', '${row.nameEmployee}')|"
                         class="btn btn-sm" data-bs-toggle="modal"
@@ -72,12 +76,10 @@
                     <span class="btn btn-info">Delete</span>
                 </button>
             </td>
-            <td><a th:href="@{/employee/{id}/view(id=${row.id})}" class="btn btn-success">view</a></td>
         </tr>
         </tbody>
     </table>
 </div>
-
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,12 +105,166 @@
     </div>
 </div>
 
+
+<div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form th:action="@{/employee/create}" method="post" th:object="${employees}">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="addModalLabel">Add new employee</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <label>Name</label>
+                        <input type="text" th:field="*{nameEmployee}"/>
+                    </div>
+                    <div>
+                        <label>Date Of Birth</label>
+                        <input type="date" id="date"   th:field="*{dateOfBirth}"/>
+                    </div>
+                    <div>
+                        <label>ID Card</label>
+                        <input type="text" id="idCard"  th:field="*{idCard}" />
+                    </div>
+                    <div>
+                        <label>Salary</label>
+                        <input type="text" id="salary" th:field="*{salary}"/>
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        <input type="text" id="phone" th:field="*{phoneNumber}"/>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="text" id="email" th:field="*{email}"/>
+                    </div>
+                    <div>
+                        <label>Address</label>
+                        <input type="text" id="address" th:field="*{address}" />
+                    </div>
+                    <div>
+                        <label>Position</label>
+                        <select id="position" class="form-control" th:field="*{position}">
+                            <option th:each="item: ${position}" th:text="${item.name}" th:value="${item.id}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Education Degree</label>
+                        <select id="degree" class="form-control" th:field="*{educationDegree}">
+                            <option th:each="item: ${degree}" th:text="${item.name}" th:value="${item.id}"></option>
+                        </select>
+                    </div>
+
+                    <div >
+                        <label>Division</label>
+                        <select id="divison" class="form-control" th:field="*{division}">
+                            <option th:each="item: ${division}" th:text="${item.name}" th:value="${item.id}"></option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form   th:action="@{/employee/update}" method="post" th:object="${employees}">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="editModalLabel">Edit new employee</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                 <div>   <input type="text"  name="idDelete" id="idUd"></div>
+                    <div>
+                        <label>Name</label>
+                        <input type="text" id="nameUd" th:field="*{nameEmployee}"/>
+                    </div>
+                    <div>
+                        <label>Date Of Birth</label>
+                        <input type="date" id="dateUd"   th:field="*{dateOfBirth}"/>
+                    </div>
+                    <div>
+                        <label>ID Card</label>
+                        <input type="text" id="idCardUd"  th:field="*{idCard}" />
+                    </div>
+                    <div>
+                        <label>Salary</label>
+                        <input type="text" id="salaryUd" th:field="*{salary}"/>
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        <input type="text" id="phoneUd" th:field="*{phoneNumber}"/>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="text" id="emailUd" th:field="*{email}"/>
+                    </div>
+                    <div>
+                        <label>Address</label>
+                        <input type="text" id="addressUd" th:field="*{address}" />
+                    </div>
+                    <div>
+                        <label>Position</label>
+                        <select id="positionUd" class="form-control" th:field="*{position}">
+                            <option th:each="item: ${position}" th:text="${item.name}" th:value="${item.id}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Education Degree</label>
+                        <select id="degreeUd" class="form-control" th:field="*{educationDegree}">
+                            <option th:each="item: ${degree}" th:text="${item.name}" th:value="${item.id}"></option>
+                        </select>
+                    </div>
+
+                    <div >
+                        <label>Division</label>
+                        <select id="divisionUd" class="form-control" th:field="*{division}">
+                            <option th:each="item: ${division}" th:text="${item.name}" th:value="${item.id}"></option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 <script>
     function customerDelete(id, name) {
         document.getElementById("idDelete").value = id;
         document.getElementById("nameDelete").innerText = name;
-
     }
+
+    function customerEdit(id, nameEmployee,dateOfBirth,idCard,salary,phoneNumber,email,address,position,educationDegree,division) {
+        alert(id)
+        document.getElementById("idUd").value = id;
+        document.getElementById("nameUd").value = nameEmployee;
+        document.getElementById("dateUd").value = dateOfBirth;
+        document.getElementById("idCardUd").value = idCard;
+        document.getElementById("salaryUd").value = salary;
+        document.getElementById("phoneUd").value = phoneNumber;
+        document.getElementById("emailUd").value = email;
+        document.getElementById("addressUd").value = address;
+        document.getElementById("positionUd").value = position;
+        document.getElementById("degreeUd").value = educationDegree;
+        document.getElementById("divisionUd").value = division;
+    }
+
 </script>
 
 
@@ -118,7 +274,7 @@
     <span th:text="${employee.number + 1}"></span>/<span th:text="${employee.totalPages}"></span>
     <a th:href="@{'/employee'(page=${employee.number + 1},search=${search})}" th:if="${employee.hasNext()}">Next</a>
 </div>
-</div>
+
 
 </body>
 </html>

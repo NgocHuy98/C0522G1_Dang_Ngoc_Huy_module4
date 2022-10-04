@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<head th:replace="/layout :: head">
+
+
+</head>
 <body>
 <div class="head">
-    <h3>Add facility</h3>
+    <h2>Add facility</h2>
     <p>
         <a th:href="@{/facility}">
             Back to facility list
         </a>
     </p>
 </div>
-<div class=" d-flex justify-content-center" >
-    <form class="mx-5 px-5 pt-3 w-50 border border-2 border-success p-3 bg-info rounded "  th:action="@{/facility/create}" th:object="${facility}"
+<div class=" d-flex justify-content-center">
+    <form class="mx-5 px-5 pt-3 w-50 border border-2 border-success p-3 bg-info rounded "
+          th:action="@{/facility/create}" th:object="${facility}"
           method="POST" novalidate="novalidate">
         <div>
             <input type="hidden" th:field="*{id}"/>
@@ -19,11 +23,10 @@
 
         <div>
             <label>Facility Type</label>
-            <p class="option">
-                <select class="form-control" th:field="*{facilityType}" onchange="changeForm(this)">
-                    <option th:each="item: ${facilityType}" th:text="${item.name}" th:value="${item.id}"></option>
-                </select>
-            </p>
+
+            <select class="form-control" th:field="*{facilityType}" id="facility_type">
+                <option th:each="item: ${facilityType}" th:text="${item.name}" th:value="${item.id}"></option>
+            </select>
 
         </div>
 
@@ -54,67 +57,74 @@
 
         </div>
 
-        <div>
+        <div id="standard">
             <label>Standard Room</label>
-            <input type="text" th:field="*{standardRoom}"/>
+            <input type="text"  th:field="*{standardRoom}"/>
         </div>
-        <div>
+        <div id="des">
             <label>Description</label>
-            <input type="text" th:field="*{descriptionOtherConvenience}"/>
+            <input type="text"  th:field="*{descriptionOtherConvenience}"/>
         </div>
-        <div>
+        <div id="pool">
             <label>Pool Area</label>
-            <input type="text" th:field="*{poolArea}"/>
+            <input type="text"  th:field="*{poolArea}"/>
         </div>
-        <div>
+        <div id="floors">
             <label>Floors</label>
-            <input type="text" th:field="*{numberOfFloors}"/>
+            <input type="text"  th:field="*{numberOfFloors}"/>
         </div>
-        <div>
+        <div id="free">
             <label>Facility Free</label>
-            <input type="text" th:field="*{facilityFree}"/>
+            <input type="text"  th:field="*{facilityFree}"/>
         </div>
 
 
         <input type="submit" value="Save"/>
+
     </form>
 </div>
-
+<script src="/jquery/jquery-3.5.1.min.js"></script>
 <script>
-    function changeForm(type) {
-        let selectForm = type.value;
-        switch (selectForm) {
-            case "1":
-                document.getElementById("standardRoom").style.display = "block";
-                document.getElementById("descriptionOtherConvenience").style.display = "block";
-                document.getElementById("poolArea").style.display = "block";
-                document.getElementById("numberOfFloors").style.display = "block";
-                document.getElementById("facilityFree").style.display = "none";
-                break;
-            case "2":
-                document.getElementById("standardRoom").style.display = "block";
-                document.getElementById("descriptionOtherConvenience").style.display = "block";
-                document.getElementById("poolArea").style.display = "none";
-                document.getElementById("numberOfFloors").style.display = "block";
-                document.getElementById("facilityFree").style.display = "none";
-                break;
-            case "3":
-                document.getElementById("standardRoom").style.display = "none";
-                document.getElementById("descriptionOtherConvenience").style.display = "none";
-                document.getElementById("poolArea").style.display = "none";
-                document.getElementById("numberOfFloors").style.display = "none";
-                document.getElementById("facilityFree").style.display = "block";
-                break;
-            default:
-                document.getElementById("standardRoom").style.display = "none";
-                document.getElementById("descriptionOtherConvenience").style.display = "none";
-                document.getElementById("poolArea").style.display = "none";
-                document.getElementById("numberOfFloors").style.display = "none";
-                document.getElementById("facilityFree").style.display = "none";
-                break;
-        }
+    selectType()
 
+    $("#facility_type").change(function () {
+        selectType()
+    })
+
+    function selectType() {
+        let type = document.getElementById("facility_type").value;
+        switch (type) {
+            case "1":
+
+                $("#standard").show();
+                $("#des").show();
+                $("#pool").show();
+                $("#floors").show();
+                $("#free").hide();
+                break
+
+            case "2":
+
+                $("#standard").show();
+                $("#des").show();
+                $("#pool").hide();
+                $("#floors").show();
+                $("#free").hide();
+                break
+
+
+            case "3":
+                $("#standard").hide();
+                $("#des").hide();
+                $("#pool").hide();
+                $("#floors").hide();
+                $("#free").show();
+
+                break;
+
+        }
     }
+
 </script>
 
 </body>

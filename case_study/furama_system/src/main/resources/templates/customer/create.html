@@ -3,9 +3,9 @@
 <head th:replace="/layout :: head"></head>
 <body>
 <div class="head">
-    <h3>Add customer</h3>
+    <h2>Add customer</h2>
     <p>
-        <a th:href="@{/}">
+        <a th:href="@{/customer}">
             Back to customer list
         </a>
     </p>
@@ -23,12 +23,9 @@
         </div>
         <div>
             <label>Customer Type</label>
-            <p class="option">
                 <select class="form-control" th:field="*{customerType}">
                     <option th:each="item: ${customerType}" th:text="${item.name}" th:value="${item.id}"></option>
                 </select>
-            </p>
-
         </div>
         <div>
             <label>Date of birth</label>

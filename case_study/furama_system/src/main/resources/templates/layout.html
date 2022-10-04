@@ -38,8 +38,8 @@
         h2 {
             margin: auto;
             text-align: center;
-            width: 300px;
-            background-color: yellow;
+            width: 100%;
+            background-image: url("https://img.freepik.com/free-vector/watercolor-background-with-hand-drawn-elements_23-2148867455.jpg?w=2000") ;
             color: black;
             padding: 10px 0 10px 20px;
         }
@@ -54,6 +54,7 @@
         #furamas td, #furamas th {
             border: 1px solid orchid;
             padding: 8px;
+            text-align: left;
         }
 
         #furamas tr:nth-child(even) {
@@ -67,7 +68,7 @@
         #furamas th {
             padding-top: 12px;
             padding-bottom: 12px;
-            text-align: left;
+            text-align: center;
             background-color: mediumpurple;
             color: white;
         }
@@ -81,7 +82,7 @@
             margin-left: 10px;
         }
 
-        input[type=text], input[type=email] {
+        input[type=text], input[type=email], input[type=date],.form-control {
             width: 100%;
             padding: 12px 0px;
             margin: 8px 0;
@@ -92,7 +93,7 @@
         }
 
         input[type=submit] {
-            width: 300px;
+            width: 200px;
             background-color: deeppink;
             color: black;
             padding: 14px 20px;
@@ -120,16 +121,6 @@
             background-color: #45a049;
         }
 
-
-        .option {
-            height: 100%;
-            width: 100%;
-            margin: auto;
-            display: inline-block;
-            border: 1px solid deeppink;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
 
         .head{
             text-align: center;
@@ -164,7 +155,7 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg " style="background: hotpink;">
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid mx-5">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -179,7 +170,7 @@
                            aria-expanded="false">Employee</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/employee">Employee list</a></li>
-                            <li><a class="dropdown-item" href="/employee?action=create">Add new Employee</a></li>
+                            <li><a class="dropdown-item" href="/employee/create">Add new Employee</a></li>
                         </ul>
                     </li>
 
@@ -197,7 +188,7 @@
                            aria-expanded="false">Service</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/facility">Facility list</a></li>
-                            <li><a class="dropdown-item" href="/facility?action=create">Add new Facility</a></li>
+                            <li><a class="dropdown-item" href="/facility/create">Add new Facility</a></li>
                         </ul>
                     </li>
 
@@ -206,7 +197,7 @@
                            aria-expanded="false">Contract</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/contract">Contract list</a></li>
-                            <li><a class="dropdown-item" href="/contract?action=create">Add new Contract</a></li>
+                            <li><a class="dropdown-item" href="/contract/create">Add new Contract</a></li>
                         </ul>
                     </li>
                 </ul>
