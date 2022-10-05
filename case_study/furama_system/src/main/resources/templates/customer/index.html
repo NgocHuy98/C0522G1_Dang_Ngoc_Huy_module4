@@ -6,95 +6,152 @@
 <body>
 
 <div th:replace="/layout::nav"></div>
-<h2>Customer List</h2>
 
 
-<div class="mx-lg-2 mt-1"  >
-    <div class="row">
-        <div class="col-2">
-            <p>
-                <a th:href="@{/customer/create}" class="btn btn-outline-danger">
-                    Add new customer
-                </a>
-            </p>
-        </div>
-
-        <div class="col-3 notify"  >
-            <div th:if="${message}">
-                <span th:text="${message}" class="btn btn-outline-success"></span>
-            </div>
-        </div>
-        <div class="col-7">
-            <form style="float: right">
-                <input type="search" name="search" placeholder="search name..." class="btn-outline-dark">
-                <button type="submit" class="btn btn-dark">Search</button>
-            </form>
-    </div>
-
-    </div>
-
-
-    <table id="furamas" >
-        <thead>
-        <tr>
-            <th>Index</th>
-            <th>Name</th>
-            <th>Customer Type</th>
-            <th>Date of birth</th>
-            <th>Gender</th>
-            <th>ID card</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="row,rowStat : ${customer}">
-            <td th:text="${rowStat.count}"></td>
-            <td th:text="${row.name}"></td>
-            <td th:text="${row.customerType.name}"></td>
-            <td th:text="${row.dateOfBirth}"></td>
-            <td th:text="${row.gender}"></td>
-            <td th:text="${row.idCard}"></td>
-            <td th:text="${row.phone}"></td>
-            <td th:text="${row.email}"></td>
-            <td th:text="${row.address}"></td>
-
-            <td><a th:href="@{/customer/{id}/edit(id=${row.id})}" class="btn btn-warning">edit</a></td>
-            <td>
-                <button th:attr="onclick=|customerDelete('${row.id}', '${row.name}')|"
-                        class="btn btn-sm" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                    <span class="btn btn-info">Delete</span>
+<div class="container-fluid">
+    <h2>CUSTOMER LIST</h2>
+    <div class="mx-lg-2">
+        <div class="row mt-2">
+            <div class="col-2">
+                <button class="btn btn-success ">
+                    <a style="text-decoration: none ;color: white" th:href="@{/customer/create}">
+                        Add new customer
+                    </a>
                 </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+            </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form action="/customer/delete" method="get">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">You Want To Delete?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" hidden name="idDelete" id="idDelete">
-                    <input type="text" hidden name="action" value="delete">
-                    <strong>Customer: </strong>
-                    <span id="nameDelete"></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Delete</button>
+            <div class="col-3 notify">
+                <div th:if="${message}">
+                    <span th:text="${message}" class="btn btn-outline-success"></span>
                 </div>
             </div>
-        </form>
+            <div class="col-7">
+                <form style="float: right">
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="search" name="search" placeholder="search name..." class="btn-outline-danger">
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-light btn-outline-danger ms-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                     class="bi bi-search-heart-fill" viewBox="0 0 16 16">
+                                    <path d="M6.5 13a6.474 6.474 0 0 0 3.845-1.258h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.008 1.008 0 0 0-.115-.1A6.471 6.471 0 0 0 13 6.5 6.502 6.502 0 0 0 6.5 0a6.5 6.5 0 1 0 0 13Zm0-8.518c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="mt-2">
+            <table id="furamas">
+                <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Customer type</th>
+                    <th>Date of birth</th>
+                    <th>Gender</th>
+                    <th>ID card</th>
+                    <th>Phone number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="row,rowStat : ${customer}">
+                    <td th:text="${rowStat.count}"></td>
+                    <td th:text="${row.name}"></td>
+                    <td th:text="${row.customerType.name}"></td>
+                    <td th:text="${row.dateOfBirth}"></td>
+                    <td th:switch="${row.gender}">
+                        <span th:case="0">Male</span>
+                        <span th:case="1">Female</span>
+                        <span th:case="*">LGBT</span>
+                    </td>
+                    <td th:text="${row.idCard}"></td>
+                    <td th:text="${row.phone}"></td>
+                    <td th:text="${row.email}"></td>
+                    <td th:text="${row.address}"></td>
+
+                    <td><a th:href="@{/customer/{id}/edit(id=${row.id})}" class="btn btn-warning ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                             class="bi bi-pen" viewBox="0 0 16 16">
+                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                        </svg>
+                    </a></td>
+                    <td>
+                        <button th:attr="onclick=|customerDelete('${row.id}', '${row.name}')|"
+                                class="btn btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                    <span class="btn btn-info">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                              class="bi bi-trash3" viewBox="0 0 16 16">
+                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                            </svg>
+                    </span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="/customer/delete" method="get">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">You Want To Delete?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" hidden name="idDelete" id="idDelete">
+                            <input type="text" hidden name="action" value="delete">
+                            <strong>Customer: </strong>
+                            <span id="nameDelete"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="mt-2">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link  pages "
+                                             th:href="@{'/customer'(page=${customer.number - 1},search=${search})}"
+                                             th:if="${customer.hasPrevious()}">Previous</a></li>
+                    <li class="page-item"><a class="page-link  pages" th:if="${customer.hasPrevious()}"
+                                             th:href="@{'/customer'(page=${customer.number - 1},search=${search})}"
+                                             th:text="${customer.number }"></a>
+                    </li>
+
+                    <li class="page-item active">
+                        <a class="page-link pages" th:text="${customer.number + 1}"
+                           th:href="@{'/customer'(page=${customer.number},search=${search})}">
+                            <span class="sr-only"></span></a>
+                    </li>
+
+                    <li class="page-item"><a class="page-link pages" th:if="${customer.hasNext()}"
+                                             th:href="@{'/customer'(page=${customer.number + 1},search=${search})}"
+                                             th:text="${customer.number + 2}"></a>
+                    </li>
+                    <li class="page-item"><a class="page-link pages"
+                                             th:href="@{'/customer'(page=${customer.number + 1},search=${search})}"
+                                             th:if="${customer.hasNext()}">Next</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
 
@@ -106,12 +163,6 @@
     }
 </script>
 
-<div id="page">
-    <a th:href="@{'/customer'(page=${customer.number - 1},search=${search})}"
-       th:if="${customer.hasPrevious()}">Previous</a>
-    <span th:text="${customer.number + 1}"></span>/<span th:text="${customer.totalPages}"></span>
-    <a th:href="@{'/customer'(page=${customer.number + 1},search=${search})}" th:if="${customer.hasNext()}">Next</a>
-</div>
 
 </body>
 </html>

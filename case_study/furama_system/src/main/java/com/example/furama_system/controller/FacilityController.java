@@ -29,8 +29,6 @@ public class FacilityController {
     public String indexFacility(@PageableDefault(value = 3, sort = "name") Pageable pageable,
                                 @RequestParam(value = "search", defaultValue = "") String search, Model model) {
         model.addAttribute("facility", iFacilityService.findByNameContaining(search, pageable));
-        model.addAttribute("facilityType", iFacilityTypeService.findAll());
-        model.addAttribute("rentType", iRentTypeService.findAll());
         model.addAttribute("search", search);
         return "facility/index";
     }

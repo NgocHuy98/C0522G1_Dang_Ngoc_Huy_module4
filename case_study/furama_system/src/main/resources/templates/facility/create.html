@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="head">
-    <h2>Add facility</h2>
+    <h2>ADD NEW FACILITY</h2>
     <p>
         <a th:href="@{/facility}">
             Back to facility list
@@ -24,7 +24,7 @@
         <div>
             <label>Facility Type</label>
 
-            <select class="form-control" th:field="*{facilityType}" id="facility_type">
+            <select class="form-select" th:field="*{facilityType}" id="facility_type">
                 <option th:each="item: ${facilityType}" th:text="${item.name}" th:value="${item.id}"></option>
             </select>
 
@@ -50,7 +50,7 @@
         <div>
             <label>Rent Type</label>
             <p class="option">
-                <select class="form-control" th:field="*{rentType}">
+                <select class="form-select" th:field="*{rentType}">
                     <option th:each="item: ${rentType}" th:text="${item.name}" th:value="${item.id}"></option>
                 </select>
             </p>

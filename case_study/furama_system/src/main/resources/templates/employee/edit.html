@@ -51,7 +51,7 @@
 
         </div>
         <div>
-            <label>Education Degree</label>
+            <label>Education degree</label>
 
                 <select class="form-control" th:field="*{educationDegree}">
                     <option th:each="item: ${degree}" th:text="${item.name}" th:value="${item.id}"></option>

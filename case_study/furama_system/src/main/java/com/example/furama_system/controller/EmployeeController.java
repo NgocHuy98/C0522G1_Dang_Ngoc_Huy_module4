@@ -33,11 +33,14 @@ public class EmployeeController {
     public String indexFacility(@PageableDefault(value = 3, sort = "name_employee") Pageable pageable,
                                 @RequestParam(value = "search", defaultValue = "") String search, Model model) {
         model.addAttribute("employee", iEmployeeService.findAllByName(search, pageable));
+        model.addAttribute("employees",new Employee());
         model.addAttribute("division", iDivisionService.findAll());
         model.addAttribute("position", iPositionService.findAll());
         model.addAttribute("degree", degreeService.findAll());
+
         model.addAttribute("search", search);
-        model.addAttribute("employees",new Employee());
+
+
         return "employee/index";
     }
 
@@ -76,7 +79,7 @@ public class EmployeeController {
 
 
     @GetMapping("/delete")
-    public String delete(@RequestParam(value = "idDelete")int id, RedirectAttributes redirect) {
+    public String delete(@RequestParam(value = "idDelete") int id, RedirectAttributes redirect) {
         iEmployeeService.remove(id);
         redirect.addFlashAttribute("success", "Removed employee successfully!");
         return "redirect:/employee";

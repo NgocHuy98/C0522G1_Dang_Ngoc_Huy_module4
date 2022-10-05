@@ -25,7 +25,6 @@ public class CustomerController {
     public String indexCustomer(@PageableDefault(value = 3, sort = "name") Pageable pageable,
                                 @RequestParam(value = "search",defaultValue = "") String search, Model model) {
         model.addAttribute("customer", iCustomerService.findAllByName(search, pageable));
-        model.addAttribute("customerType", iCustomerTypeService.findAll());
         model.addAttribute("search", search);
         return "customer/index";
     }

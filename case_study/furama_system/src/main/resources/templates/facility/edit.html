@@ -3,7 +3,7 @@
 <head th:replace="/layout :: head"></head>
 <body>
 <div class="head">
-  <h2>Edit facility</h2>
+  <h2>EDIT FACILITY</h2>
   <p>
     <a th:href="@{/facility}">
       Back to facility list
@@ -17,7 +17,7 @@
 
     <div>
       <label>Facility Type</label>
-        <select class="form-control" th:field="*{facilityType}" onchange="changeForm(this)">
+        <select class="form-select" th:field="*{facilityType}" onchange="changeForm(this)">
           <option th:each="item: ${facilityType}" th:text="${item.name}" th:value="${item.id}"></option>
         </select>
 
@@ -42,7 +42,7 @@
 
     <div>
       <label>Rent Type</label>
-        <select class="form-control" th:field="*{rentType}">
+        <select class="form-select" th:field="*{rentType}">
           <option th:each="item: ${rentType}" th:text="${item.name}" th:value="${item.id}"></option>
         </select>
 

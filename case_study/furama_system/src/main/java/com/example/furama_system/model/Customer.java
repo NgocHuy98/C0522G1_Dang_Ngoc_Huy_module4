@@ -10,7 +10,7 @@ public class Customer {
     private int id;
 
     private String name;
-    private String gender;
+    private int gender;
     private String dateOfBirth;
     private String idCard;
     private String phone;
@@ -28,7 +28,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String name, String gender, String dateOfBirth, String idCard, String phone,
+    public Customer(int id, String name, int gender, String dateOfBirth, String idCard, String phone,
                     String email, String address, CustomerType customerType) {
         this.id = id;
         this.name = name;
@@ -65,11 +65,11 @@ public class Customer {
         this.name = name;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

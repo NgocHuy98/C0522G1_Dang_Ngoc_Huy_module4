@@ -16,7 +16,7 @@
     </script>
     <style>
 
-        body{
+        body {
 
             background-image: url("https://img.freepik.com/free-vector/luxury-abstract-gold-background-with-shiny-elements_23-2148827898.jpg?w=2000");
         }
@@ -24,11 +24,14 @@
 
         .myCSS {
             background-color: #E6BB72;
+            height: 100%;
+            width: 100%;
 
         }
 
         a {
             text-decoration: none;
+            color: green;
         }
 
         a:hover {
@@ -39,7 +42,7 @@
             margin: auto;
             text-align: center;
             width: 100%;
-            background-image: url("https://img.freepik.com/free-vector/watercolor-background-with-hand-drawn-elements_23-2148867455.jpg?w=2000") ;
+            /*background-image: url("https://img.freepik.com/free-vector/watercolor-background-with-hand-drawn-elements_23-2148867455.jpg?w=2000");*/
             color: black;
             padding: 10px 0 10px 20px;
         }
@@ -69,27 +72,27 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: mediumpurple;
+            background-color: purple;
             color: white;
         }
 
-        .magin{
-            margin: auto;
+
+
+        .pages {
+            text-decoration: none;
+            border: darkgray;
+
         }
 
-
-        #page {
-            margin-left: 10px;
-        }
-
-        input[type=text], input[type=email], input[type=date],.form-control {
+        input[type=text], input[type=email], input[type=date], .form-control,.form-select {
             width: 100%;
             padding: 12px 0px;
-            margin: 8px 0;
+            margin: 8px 0 20px;
             display: inline-block;
             border: 1px solid deeppink;
             border-radius: 6px;
             box-sizing: border-box;
+
         }
 
         input[type=submit] {
@@ -104,14 +107,15 @@
             text-align: center;
         }
 
+
+
         input[type=search] {
             width: 200px;
             height: 40px;
-            background-color: lightgreen;
+            background-color: lightgrey;
             color: black;
             padding: 5px 5px;
             margin-left: 10px;
-            border: none;
             border-radius: 6px;
             cursor: pointer;
             text-align: left;
@@ -121,8 +125,11 @@
             background-color: #45a049;
         }
 
+        .navbars{
+            background-image: url("https://img.freepik.com/free-vector/watercolour-background-with-leaves_91008-314.jpg?w=2000");
+        }
 
-        .head{
+        .head {
             text-align: center;
         }
 
@@ -155,7 +162,7 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg navbars ">
         <div class="container-fluid mx-5">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -207,40 +214,7 @@
     </nav>
 </div>
 
-<div th:fragment="body" class="container-fluid" style="height: 520px">
-    <div class="row mx-3">
-        <div class="col-2">
-            <iframe width="200" height="200" src="https://www.youtube.com/embed/PgvSSl4jm1U"
-                    title="Furama Resort Đà Nẵng" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            <a href="">Furama Đà Nẵng</a>
-            <iframe width="200" height="200" src="https://www.youtube.com/embed/L5B05GaZsy4"
-                    title="Biệt thự nghỉ dưỡng FURAMA RESORT DANANG - Ngũ Hành Sơn, Đà Nẵng" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-        </div>
-
-        <div class="col-10">
-            <img width="100%" height="520" id="img" onclick="changeImage()"
-                 src="https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-Night.jpg"
-                 alt="">
-        </div>
-        <script>
-            var index = 1;
-            changeImage = function () {
-                var imgs = ["https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior_Courtyard-Night.jpg", "https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior-Lobby.jpg", "https://furamavietnam.com/wp-content/uploads/2018/11/Vietnam_Danang_Furama_Resort_Exterior-Lagoon-Pool.jpg"];
-                document.getElementById('img').src = imgs[index];
-                index++;
-                if (index == 3) {
-                    index = 0;
-                }
-            }
-            setInterval(changeImage, 2000);
-        </script>
-    </div>
 </div>
-
 </body>
 <footer th:fragment="footer">
     <div style="text-align: center;background: pink;margin: auto"> &copy; Huy Jr</div>
