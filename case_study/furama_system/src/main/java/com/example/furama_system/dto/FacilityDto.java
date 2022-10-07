@@ -12,33 +12,43 @@ public class FacilityDto {
 
     @NotBlank
     @Size(min = 3, max = 100, message = "5 or more characters (< 100)")
-    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$",
-            message = "Each first letter must be capitalized (ex: Jack...)")
+    @Pattern(regexp = "^(([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}( \\d*)?)| *$",
+            message = "Allowed to contain, each first letter must be capitalized (ex: Jack...)")
     private String name;
 
     @NotBlank
-    @Min(40)
-    @Max(100)
+    @Pattern(regexp = "[0-9]+",message = "Please enter number > 0")
     private String area;
 
     @NotBlank
-    @Pattern(regexp = "[0-9]+")
+    @Pattern(regexp = "[0-9]+",message = "Please enter number > 0")
     private String cost;
 
+    @NotBlank
+    @Pattern(regexp = "[0-9]+",message = "Please enter number > 0")
     private String maxPeople;
 
     private RentType rentType;
 
     private FacilityType facilityType;
 
+    @NotBlank
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$",
+            message = "Each first letter must be capitalized (ex: Jack...)")
     private String standardRoom;
 
+    @NotBlank
     private String descriptionOtherConvenience;
 
+    @NotBlank
+    @Pattern(regexp = "[0-9]+",message = "Please enter number > 0")
     private String poolArea;
 
+    @NotBlank
+    @Pattern(regexp = "[0-9]+",message = "Please enter number > 0")
     private String numberOfFloors;
 
+    @NotBlank
     private String facilityFree;
 
     private Set<Contract> contractSet;
@@ -93,6 +103,7 @@ public class FacilityDto {
     public String getCost() {
         return cost;
     }
+
 
     public void setCost(String cost) {
         this.cost = cost;

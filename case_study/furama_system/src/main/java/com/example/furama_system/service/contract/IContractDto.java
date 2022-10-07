@@ -1,4 +1,4 @@
-package com.example.furama_system.dto;
+package com.example.furama_system.service.contract;
 
 public interface IContractDto {
     String getContractId();

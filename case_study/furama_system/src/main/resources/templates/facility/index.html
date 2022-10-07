@@ -115,31 +115,39 @@
         </div>
 
         <div class="mt-2">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link  pages "
-                                             th:href="@{'/facility'(page=${facility.number - 1},search=${search})}"
-                                             th:if="${facility.hasPrevious()}">Previous</a></li>
-                    <li class="page-item"><a class="page-link  pages" th:if="${facility.hasPrevious()}"
-                                             th:href="@{'/facility'(page=${facility.number - 1},search=${search})}"
-                                             th:text="${facility.number }"></a>
-                    </li>
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-2">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link  pages "
+                                                     th:href="@{'/facility'(page=${facility.number - 1},search=${search})}"
+                                                     th:if="${facility.hasPrevious()}">Previous</a></li>
+                            <li class="page-item"><a class="page-link  pages" th:if="${facility.hasPrevious()}"
+                                                     th:href="@{'/facility'(page=${facility.number - 1},search=${search})}"
+                                                     th:text="${facility.number }"></a>
+                            </li>
 
-                    <li class="page-item active">
-                        <a class="page-link pages" th:text="${facility.number + 1}"
-                           th:href="@{'/facility'(page=${facility.number},search=${search})}">
-                            <span class="sr-only"></span></a>
-                    </li>
+                            <li class="page-item active">
+                                <a class="page-link pages" th:text="${facility.number + 1}"
+                                   th:href="@{'/facility'(page=${facility.number},search=${search})}">
+                                    <span class="sr-only"></span></a>
+                            </li>
 
-                    <li class="page-item"><a class="page-link pages" th:if="${facility.hasNext()}"
-                                             th:href="@{'/facility'(page=${facility.number + 1},search=${search})}"
-                                             th:text="${facility.number + 2}"></a>
-                    </li>
-                    <li class="page-item"><a class="page-link pages"
-                                             th:href="@{'/facility'(page=${facility.number + 1},search=${search})}"
-                                             th:if="${facility.hasNext()}">Next</a></li>
-                </ul>
-            </nav>
+                            <li class="page-item"><a class="page-link pages" th:if="${facility.hasNext()}"
+                                                     th:href="@{'/facility'(page=${facility.number + 1},search=${search})}"
+                                                     th:text="${facility.number + 2}"></a>
+                            </li>
+                            <li class="page-item"><a class="page-link pages"
+                                                     th:href="@{'/facility'(page=${facility.number + 1},search=${search})}"
+                                                     th:if="${facility.hasNext()}">Next</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+                <div class="col-5"></div>
+            </div>
+
         </div>
     </div>
 </div>

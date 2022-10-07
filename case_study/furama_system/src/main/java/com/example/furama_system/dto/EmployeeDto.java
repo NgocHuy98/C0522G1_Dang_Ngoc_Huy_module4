@@ -20,15 +20,19 @@ public class EmployeeDto {
     @NotBlank
     private String dateOfBirth;
 
+    @NotBlank
     @Pattern(regexp = "\\d{9}|\\d{12}",message = "Identity card must be in the correct format of 9 and 12 numbers")
     private String idCard;
 
+    @NotBlank
     @Min(value = 4500000,message = "min salary is 4500000")
     private double salary;
 
+    @NotBlank
     @Pattern(regexp = "^((\\(\\+84\\-\\))|0)(90|91)[0-9]{7}$",message = "Include ten number: 090|091-xxxxxxx" )
     private String phoneNumber;
 
+    @NotBlank
     @Email(message = "Wrong email format, please enter correct email! (ex: abc@example.com")
     private String email;
 

@@ -1,6 +1,6 @@
 package com.example.furama_system.service.contract.impl;
 
-import com.example.furama_system.dto.IContractDto;
+import com.example.furama_system.service.contract.IContractDto;
 import com.example.furama_system.model.Contract;
 import com.example.furama_system.repository.contract.IContractRepository;
 import com.example.furama_system.service.contract.IContractService;
