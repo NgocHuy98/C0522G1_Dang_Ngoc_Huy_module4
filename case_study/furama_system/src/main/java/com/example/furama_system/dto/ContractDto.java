@@ -5,18 +5,22 @@ import com.example.furama_system.model.Customer;
 import com.example.furama_system.model.Employee;
 import com.example.furama_system.model.Facility;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.util.Set;
 
 public class ContractDto {
+
     private int id;
+
     private String startDate;
+
     private String endDate;
+
     private String deposit;
+
     private Employee employee;
+
     private Customer customer;
+
     private Facility facility;
 
     private String isDelete;

@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="row,rowStat : ${contract}">
-                    <td th:text="${rowStat.count}"></td>
+                    <td th:text="${ contract.number * 3 +rowStat.count}"></td>
                     <td th:text="${row.getFacilityName}"></td>
                     <td th:text="${row.getCustomerName}"></td>
                     <td th:text="${row.getStartDate}"></td>
@@ -73,7 +73,7 @@
 
         <div class="modal fade" id="addContractModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form th:action="@{/contract/save}" method="post" th:object="${contractDto}">
+                <form th:action="@{/contract/save}" method="post" th:object="${contractDto}" class=" mx-3 px-3  pt-3  border border-2 border-success p-3 bg-info rounded ">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2 class="modal-title" id="addModalLabel">Add new contract</h2>
@@ -82,18 +82,24 @@
                         <div class="modal-body">
                             <div>
                                 <label>Facility</label>
-                                <input type="text" th:field="*{facility}"/>
-                                <select th:field="*{facility}">
-
+                                <select id="facility" class="form-select" th:field="*{facility.id}">
+                                    <option th:each="item : ${facility}" th:value="${item.id}"
+                                            th:text="${item.name}"></option>
                                 </select>
                             </div>
                             <div>
                                 <label>Customer</label>
-                                <input type="text" th:field="*{customer}"/>
+                                <select id="customer" class="form-select" th:field="*{customer.id}">
+                                    <option th:each="item : ${customer}" th:value="${item.id}"
+                                            th:text="${item.name}"></option>
+                                </select>
                             </div>
                             <div>
                                 <label>Employee</label>
-                                <input type="text" th:field="*{employee}"/>
+                                <select id="employee" class="form-select" th:field="*{employee.id}">
+                                    <option th:each="item : ${employee}" th:value="${item.id}"
+                                            th:text="${item.nameEmployee}"></option>
+                                </select>
                             </div>
                             <div>
                                 <label>Start date</label>
@@ -117,73 +123,73 @@
             </div>
         </div>
 
-<!--        <div class="modal fade" id="addContractdetail" tabindex="-1" aria-labelledby="addModalLabel1" aria-hidden="true">-->
-<!--            <div class="modal-dialog">-->
+        <div class="modal fade" id="addContractdetail" tabindex="-1" aria-labelledby="addModalLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+                <form th:action="@{/contract/create}" method="post" th:object="${contractDetail}">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="addModalLabel1">Add new employee</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <label>Contract</label>
+                                <input type="text"/>
+                            </div>
+                            <div>
+                                <label>Attach facility</label>
+                                <input type="text" />
+                            </div>
+                            <div>
+                                <label>Quantity</label>
+                                <input type="text" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addAttach" tabindex="-1" aria-labelledby="addModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
 <!--                <form th:action="@{/contract/create}" method="post" th:object="${contractDetail}">-->
-<!--                    <div class="modal-content">-->
-<!--                        <div class="modal-header">-->
-<!--                            <h2 class="modal-title" id="addModalLabel1">Add new employee</h2>-->
-<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--                        </div>-->
-<!--                        <div class="modal-body">-->
-<!--                            <div>-->
-<!--                                <label>Contract</label>-->
-<!--                                <input type="text"/>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <label>Attach facility</label>-->
-<!--                                <input type="text" />-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <label>Quantity</label>-->
-<!--                                <input type="text" />-->
-<!--                            </div>-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="addModalLabel2">Add attach facility</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <label>Name</label>
+                                <input type="text"/>
+                            </div>
+                            <div>
+                                <label>Cost</label>
+                                <input type="text" />
+                            </div>
+                            <div>
+                                <label>Status</label>
+                                <input type="text" />
+                            </div>
+                            <div>
+                                <label>Unit</label>
+                                <input type="text" />
+                            </div>
 
-<!--                        </div>-->
-<!--                        <div class="modal-footer">-->
-<!--                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>-->
-<!--                            <button type="submit" class="btn btn-danger">Save</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="modal fade" id="addAttach" tabindex="-1" aria-labelledby="addModalLabel2" aria-hidden="true">-->
-<!--            <div class="modal-dialog">-->
-<!--&lt;!&ndash;                <form th:action="@{/contract/create}" method="post" th:object="${contractDetail}">&ndash;&gt;-->
-<!--                    <div class="modal-content">-->
-<!--                        <div class="modal-header">-->
-<!--                            <h2 class="modal-title" id="addModalLabel2">Add attach facility</h2>-->
-<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--                        </div>-->
-<!--                        <div class="modal-body">-->
-<!--                            <div>-->
-<!--                                <label>Name</label>-->
-<!--                                <input type="text"/>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <label>Cost</label>-->
-<!--                                <input type="text" />-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <label>Status</label>-->
-<!--                                <input type="text" />-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                                <label>Unit</label>-->
-<!--                                <input type="text" />-->
-<!--                            </div>-->
-
-<!--                        </div>-->
-<!--                        <div class="modal-footer">-->
-<!--                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>-->
-<!--                            <button type="submit" class="btn btn-danger">Save</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
 
         <div class="mt-2">

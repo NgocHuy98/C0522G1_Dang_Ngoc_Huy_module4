@@ -17,6 +17,7 @@ public class ContractDetail {
     private AttachFacility attachFacility;
 
     private int quantity;
+
     private String isDelete;
 
     public ContractDetail() {

@@ -34,7 +34,7 @@ public class FacilityController {
     }
 
     @GetMapping("/create")
-    public String create(Model model) {
+    public String createFacility(Model model) {
         model.addAttribute("facility", new Facility());
         model.addAttribute("facilityType", iFacilityTypeService.findAll());
         model.addAttribute("rentType", iRentTypeService.findAll());
@@ -42,14 +42,14 @@ public class FacilityController {
     }
 
     @PostMapping("/create")
-    public String save(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes) {
+    public String saveFacility(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes) {
         iFacilityService.save(facility);
         redirectAttributes.addFlashAttribute("message", "Create new facility successfully!");
         return "redirect:/facility";
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
+    public String editFacility(@PathVariable int id, Model model) {
         model.addAttribute("facility", iFacilityService.findById(id));
         model.addAttribute("facilityType", iFacilityTypeService.findAll());
         model.addAttribute("rentType", iRentTypeService.findAll());
@@ -58,7 +58,7 @@ public class FacilityController {
 
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Facility facility, RedirectAttributes redirect) {
+    public String updateFacility(@ModelAttribute Facility facility, RedirectAttributes redirect) {
         iFacilityService.update(facility);
         redirect.addFlashAttribute("message", "Update facility successfully!");
         return "redirect:/facility";
@@ -66,18 +66,19 @@ public class FacilityController {
 
 
     @GetMapping("/delete")
-    public String delete(@RequestParam(value = "idDelete")int id, RedirectAttributes redirect) {
+    public String deleteFacility(@RequestParam(value = "idDelete")int id, RedirectAttributes redirect) {
         iFacilityService.remove(id);
         redirect.addFlashAttribute("success", "Removed facility successfully!");
         return "redirect:/facility";
     }
 
-    @GetMapping("/{id}/view")
-    public String view(@PathVariable int id, Model model) {
-        model.addAttribute("facilityType", iFacilityTypeService.findAll());
-        model.addAttribute("rentType", iRentTypeService.findAll());
-        model.addAttribute("facility", iFacilityService.findById(id));
-        return "/facility/view";
-    }
+//    @GetMapping("/{id}/view")
+//    public String view(@PathVariable int id, Model model) {
+//        model.addAttribute("facilityType", iFacilityTypeService.findAll());
+//        model.addAttribute("rentType", iRentTypeService.findAll());
+//        model.addAttribute("facility", iFacilityService.findById(id));
+//        return "/facility/view";
+//    }
 
 }
+

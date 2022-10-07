@@ -2,7 +2,6 @@ package com.example.furama_system.controller;
 
 import com.example.furama_system.dto.ContractDto;
 import com.example.furama_system.model.Contract;
-import com.example.furama_system.model.Employee;
 import com.example.furama_system.service.contract.IContractDetailService;
 import com.example.furama_system.service.contract.IContractService;
 import com.example.furama_system.service.customer.ICustomerService;
@@ -46,29 +45,18 @@ public class ContractController {
         model.addAttribute("contractDto", new ContractDto());
         return "contract/index";
     }
-//
-
-//    @PostMapping("/create")
-//    public String save(@ModelAttribute ContractDto contractDto, RedirectAttributes redirectAttributes) {
-//        Contract contract = new Contract();
-//
-//        BeanUtils.copyProperties(contractDto,contract);
-//        iContractService.save(contract);
-//        redirectAttributes.addFlashAttribute("message", "Create new contract successfully!");
-//        return "redirect:/contract";
-//    }
 
     @PostMapping("/save")
-    public String saveEmployee(@ModelAttribute @Validated ContractDto contractDto, BindingResult bindingResult,
+    public String saveContract(@ModelAttribute @Validated ContractDto contractDto, BindingResult bindingResult,
                                RedirectAttributes redirectAttributes, Model model) {
         if (bindingResult.hasFieldErrors()) {
-//            model.addAttribute("contractDetail", iContractDetailService.findAll());
-            return "employee/create";
+            model.addAttribute("contractDetail", iContractDetailService.findAll());
+            return "contract/index";
         }
         Contract contract = new Contract();
         BeanUtils.copyProperties(contractDto, contract);
         iContractService.save(contract);
-        redirectAttributes.addFlashAttribute("mess", "create success!!");
+        redirectAttributes.addFlashAttribute("message", "Create new contract successfully!!");
         return "redirect:/contract";
     }
 

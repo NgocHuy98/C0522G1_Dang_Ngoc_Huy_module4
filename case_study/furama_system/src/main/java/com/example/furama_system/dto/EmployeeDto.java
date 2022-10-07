@@ -1,52 +1,59 @@
-package com.example.furama_system.model;
+package com.example.furama_system.dto;
 
-import javax.persistence.*;
+import com.example.furama_system.model.Contract;
+import com.example.furama_system.model.Division;
+import com.example.furama_system.model.EducationDegree;
+import com.example.furama_system.model.Position;
+
+import javax.validation.constraints.*;
 import java.util.Set;
 
-@Entity
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class EmployeeDto {
 
+    private int id;
+    @NotBlank
+    @Size(min = 3, max = 100, message = "5 or more characters (< 100)")
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$",
+            message = "Each first letter must be capitalized (ex: Jack...)")
     private String nameEmployee;
 
+    @NotBlank
     private String dateOfBirth;
 
+    @Pattern(regexp = "\\d{9}|\\d{12}",message = "Identity card must be in the correct format of 9 and 12 numbers")
     private String idCard;
 
+    @Min(value = 4500000,message = "min salary is 4500000")
     private double salary;
 
+    @Pattern(regexp = "^((\\(\\+84\\-\\))|0)(90|91)[0-9]{7}$",message = "Include ten number: 090|091-xxxxxxx" )
     private String phoneNumber;
 
+    @Email(message = "Wrong email format, please enter correct email! (ex: abc@example.com")
     private String email;
 
+    @NotBlank()
+    @Size(max = 100,message = "characters (< 100)")
     private String address;
 
     private boolean isDelete;
 
-    @ManyToOne
-    @JoinColumn(name = "position_id",referencedColumnName = "id")
     private Position position;
 
-    @ManyToOne
-    @JoinColumn(name = "education_degree_id",referencedColumnName = "id")
     private EducationDegree educationDegree;
 
-    @ManyToOne
-    @JoinColumn(name = "division_id",referencedColumnName = "id")
     private Division division;
 
-    @OneToMany(mappedBy = "employee")
+
     private Set<Contract> contractSet;
 
-    public Employee() {
+    public EmployeeDto() {
     }
 
-    public Employee(int id, String nameEmployee, String dateOfBirth, String idCard,
-                    double salary, String phoneNumber, String email, String address,
-                    Position position, EducationDegree educationDegree, Division division,
-                    Set<Contract> contractSet) {
+    public EmployeeDto(int id, String nameEmployee, String dateOfBirth, String idCard,
+                       double salary, String phoneNumber, String email, String address,
+                       Position position, EducationDegree educationDegree, Division division,
+                       Set<Contract> contractSet) {
         this.id = id;
         this.nameEmployee = nameEmployee;
         this.dateOfBirth = dateOfBirth;

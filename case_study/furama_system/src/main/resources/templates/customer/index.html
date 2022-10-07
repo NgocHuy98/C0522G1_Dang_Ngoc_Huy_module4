@@ -64,7 +64,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="row,rowStat : ${customer}">
-                    <td th:text="${rowStat.count}"></td>
+                    <td th:text="${customer.number * 3 + rowStat.count}"></td>
                     <td th:text="${row.name}"></td>
                     <td th:text="${row.customerType.name}"></td>
                     <td th:text="${row.dateOfBirth}"></td>

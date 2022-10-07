@@ -9,7 +9,9 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
     @OneToMany(mappedBy = "position",cascade = CascadeType.ALL)
     private Set<Employee> employeeSet;
 

@@ -59,7 +59,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="row,rowStat : ${employee}">
-                    <td th:text="${rowStat.count}"></td>
+                    <td th:text="${employee.number * 3 +rowStat.count}"></td>
                     <td th:text="${row.nameEmployee}"></td>
                     <td th:text="${row.dateOfBirth}"></td>
                     <td th:text="${row.idCard}"></td>
@@ -67,24 +67,24 @@
                     <td th:text="${row.email}"></td>
                     <td th:text="${row.address}"></td>
                     <td th:text="${row.position.name}"></td>
-
                     <td>
-                        <!--                <button class="btn btn-sm" data-bs-toggle="modal"-->
-                        <!--                        data-bs-target="#editEmployeeModal">-->
-                        <!--                    <span class="btn btn-warning">Update</span>-->
-                        <!--                </button>-->
-
-                        <button th:attr="onclick=|customerEdit('${row.id}', '${row.nameEmployee}','${row.dateOfBirth}','${row.salary}', '${row.idCard}','${row.phoneNumber}','${row.email}','${row.address}','${row.position}','${row.educationDegree}','${row.division}')|"
-                                class="btn btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#editEmployeeModal">
-                    <span class="btn btn-warning">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                              class="bi bi-pen" viewBox="0 0 16 16">
-                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
-                        </svg>
-                    </span>
-                        </button>
+                        <a th:href="@{/employee/{id}/edit(id=${row.id})}" class="btn btn-warning ">
+                            edit</a>
                     </td>
+
+<!--                    <td>-->
+<!--                        <button th:attr="onclick=|customerEdit('${row.id}', '${row.nameEmployee}','${row.dateOfBirth}','${row.salary}', '${row.idCard}','${row.phoneNumber}','${row.email}','${row.address}','${row.position}','${row.educationDegree}','${row.division}')|"-->
+<!--                                class="btn btn-sm" data-bs-toggle="modal"-->
+<!--                                data-bs-target="#editEmployeeModal">-->
+<!--                              <span class="btn btn-warning">-->
+<!--                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"-->
+<!--                              class="bi bi-pen" viewBox="0 0 16 16">-->
+<!--                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>-->
+<!--                        </svg>-->
+<!--                    </span>-->
+
+<!--                        </button>-->
+<!--                    </td>-->
 
                     <td>
                         <button th:attr="onclick=|customerDelete('${row.id}', '${row.nameEmployee}')|"
@@ -129,7 +129,7 @@
 
         <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form th:action="@{/employee/create}" method="post" th:object="${employees}">
+                <form  th:action="@{/employee/create}" method="post" th:object="${employeeDto}" class=" mx-3 px-3  pt-3  border border-2 border-success p-3 bg-info rounded ">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2 class="modal-title" id="addModalLabel">Add new employee</h2>
@@ -139,6 +139,7 @@
                             <div>
                                 <label>Name</label>
                                 <input type="text" th:field="*{nameEmployee}"/>
+
                             </div>
                             <div>
                                 <label>Date Of Birth</label>
@@ -147,18 +148,22 @@
                             <div>
                                 <label>ID card</label>
                                 <input type="text" id="idCard" th:field="*{idCard}"/>
+
                             </div>
                             <div>
                                 <label>Salary</label>
                                 <input type="text" id="salary" th:field="*{salary}"/>
+
                             </div>
                             <div>
                                 <label>Phone</label>
                                 <input type="text" id="phone" th:field="*{phoneNumber}"/>
+
                             </div>
                             <div>
                                 <label>Email</label>
                                 <input type="text" id="email" th:field="*{email}"/>
+
                             </div>
                             <div>
                                 <label>Address</label>
@@ -197,78 +202,88 @@
             </div>
         </div>
 
+<!--edit-->
+<!--        <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editModalLabel"-->
+<!--             aria-hidden="true">-->
+<!--            <div class="modal-dialog">-->
+<!--                <form th:action="@{/employee/update}" method="post" th:object="${employees}" class=" mx-3 px-3  pt-3  border border-2 border-success p-3 bg-info rounded ">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="modal-header">-->
+<!--                            <h2 class="modal-title" id="editModalLabel">Edit new employee</h2>-->
+<!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                        </div>-->
+<!--                        <div class="modal-body">-->
+<!--                            <div><input type="text" hidden name="idDelete" id="idUd"></div>-->
+<!--                            <div>-->
+<!--                                <label>Name</label>-->
+<!--                                <input type="text" id="nameUd" th:field="*{nameEmployee}"/>-->
+<!--                                <p style="color: red" th:errors="*{nameEmployee}"-->
+<!--                                   th:if="${#fields.hasErrors('nameEmployee')}"></p>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Date Of Birth</label>-->
+<!--                                <input type="date" id="dateUd" th:field="*{dateOfBirth}"/>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>ID Card</label>-->
+<!--                                <input type="text" id="idCardUd" th:field="*{idCard}"/>-->
+<!--                                <p style="color: red" th:errors="*{idCard}"-->
+<!--                                   th:if="${#fields.hasErrors('idCard')}"></p>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Salary</label>-->
+<!--                                <input type="text" id="salaryUd" th:field="*{salary}"/>-->
+<!--                                <p style="color: red" th:errors="*{salary}"-->
+<!--                                   th:if="${#fields.hasErrors('salary')}"></p>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Phone</label>-->
+<!--                                <input type="text" id="phoneUd" th:field="*{phoneNumber}"/>-->
+<!--                                <p style="color: red" th:errors="*{phoneNumber}"-->
+<!--                                   th:if="${#fields.hasErrors('phoneNumber')}"></p>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Email</label>-->
+<!--                                <input type="text" id="emailUd" th:field="*{email}"/>-->
+<!--                                <p style="color: red" th:errors="*{email}"-->
+<!--                                   th:if="${#fields.hasErrors('email')}"></p>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Address</label>-->
+<!--                                <input type="text" id="addressUd" th:field="*{address}"/>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Position</label>-->
+<!--                                <select id="positionUd" class="form-select" th:field="*{position}">-->
+<!--                                    <option th:each="item: ${position}" th:text="${item.name}"-->
+<!--                                            th:value="${item.id}"></option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <label>Education degree</label>-->
+<!--                                <select id="degreeUd" class="form-select" th:field="*{educationDegree}">-->
+<!--                                    <option th:each="item: ${degree}" th:text="${item.name}"-->
+<!--                                            th:value="${item.id}"></option>-->
+<!--                                </select>-->
+<!--                            </div>-->
 
-        <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="editModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <form th:action="@{/employee/update}" method="post" th:object="${employees}">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title" id="editModalLabel">Edit new employee</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div><input type="text" name="idDelete" id="idUd"></div>
-                            <div>
-                                <label>Name</label>
-                                <input type="text" id="nameUd" th:field="*{nameEmployee}"/>
-                            </div>
-                            <div>
-                                <label>Date Of Birth</label>
-                                <input type="date" id="dateUd" th:field="*{dateOfBirth}"/>
-                            </div>
-                            <div>
-                                <label>ID Card</label>
-                                <input type="text" id="idCardUd" th:field="*{idCard}"/>
-                            </div>
-                            <div>
-                                <label>Salary</label>
-                                <input type="text" id="salaryUd" th:field="*{salary}"/>
-                            </div>
-                            <div>
-                                <label>Phone</label>
-                                <input type="text" id="phoneUd" th:field="*{phoneNumber}"/>
-                            </div>
-                            <div>
-                                <label>Email</label>
-                                <input type="text" id="emailUd" th:field="*{email}"/>
-                            </div>
-                            <div>
-                                <label>Address</label>
-                                <input type="text" id="addressUd" th:field="*{address}"/>
-                            </div>
-                            <div>
-                                <label>Position</label>
-                                <select id="positionUd" class="form-select" th:field="*{position}">
-                                    <option th:each="item: ${position}" th:text="${item.name}"
-                                            th:value="${item.id}"></option>
-                                </select>
-                            </div>
-                            <div>
-                                <label>Education degree</label>
-                                <select id="degreeUd" class="form-control" th:field="*{educationDegree}">
-                                    <option th:each="item: ${degree}" th:text="${item.name}"
-                                            th:value="${item.id}"></option>
-                                </select>
-                            </div>
+<!--                            <div>-->
+<!--                                <label>Division</label>-->
+<!--                                <select id="divisionUd" class="form-select" th:field="*{division}">-->
+<!--                                    <option th:each="item: ${division}" th:text="${item.name}"-->
+<!--                                            th:value="${item.id}"></option>-->
+<!--                                </select>-->
 
-                            <div>
-                                <label>Division</label>
-                                <select id="divisionUd" class="form-select" th:field="*{division}">
-                                    <option th:each="item: ${division}" th:text="${item.name}"
-                                            th:value="${item.id}"></option>
-                                </select>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-danger">Save</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="modal-footer">-->
+<!--                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>-->
+<!--                            <button type="submit" class="btn btn-danger">Save</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="mt-2">
             <nav aria-label="Page navigation example">
@@ -308,7 +323,6 @@
     }
 
     function customerEdit(id, nameEmployee, dateOfBirth, idCard, salary, phoneNumber, email, address, position, educationDegree, division) {
-        alert(id)
         document.getElementById("idUd").value = id;
         document.getElementById("nameUd").value = nameEmployee;
         document.getElementById("dateUd").value = dateOfBirth;
