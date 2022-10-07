@@ -25,8 +25,8 @@ public class EmployeeDto {
     private String idCard;
 
     @NotBlank
-    @Min(value = 4500000,message = "min salary is 4500000")
-    private double salary;
+    @Pattern(regexp = "[0-9]+",message = "Please enter number > 0")
+    private String salary;
 
     @NotBlank
     @Pattern(regexp = "^((\\(\\+84\\-\\))|0)(90|91)[0-9]{7}$",message = "Include ten number: 090|091-xxxxxxx" )
@@ -36,7 +36,7 @@ public class EmployeeDto {
     @Email(message = "Wrong email format, please enter correct email! (ex: abc@example.com")
     private String email;
 
-    @NotBlank()
+    @NotBlank
     @Size(max = 100,message = "characters (< 100)")
     private String address;
 
@@ -55,7 +55,7 @@ public class EmployeeDto {
     }
 
     public EmployeeDto(int id, String nameEmployee, String dateOfBirth, String idCard,
-                       double salary, String phoneNumber, String email, String address,
+                       String salary, String phoneNumber, String email, String address,
                        Position position, EducationDegree educationDegree, Division division,
                        Set<Contract> contractSet) {
         this.id = id;
@@ -112,11 +112,11 @@ public class EmployeeDto {
         this.idCard = idCard;
     }
 
-    public double getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 

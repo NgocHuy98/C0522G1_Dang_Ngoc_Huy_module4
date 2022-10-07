@@ -50,12 +50,12 @@ public class EmployeeController {
     @PostMapping("/create")
     public String saveEmployee(@ModelAttribute @Validated EmployeeDto employeeDto, BindingResult bibi,
                                RedirectAttributes redirectAttributes, Model model) {
-//        if (bibi.hasFieldErrors()) {
-//            model.addAttribute("divisionList", iDivisionService.findAll());
-//            model.addAttribute("educationDegreeList", degreeService.findAll());
-//            model.addAttribute("positionList", iPositionService.findAll());
-//            return "employee/index";
-//        }
+        if (bibi.hasFieldErrors()) {
+            model.addAttribute("divisionList", iDivisionService.findAll());
+            model.addAttribute("educationDegreeList", degreeService.findAll());
+            model.addAttribute("positionList", iPositionService.findAll());
+            return "employee/index";
+        }
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDto, employee);
         iEmployeeService.save(employee);
@@ -85,14 +85,14 @@ public class EmployeeController {
     }
 
     @PostMapping("/update")
-    public String updateEmployee(@ModelAttribute @Validated EmployeeDto employeeDto, BindingResult bindingResult,
+    public String updateEmployee(@ModelAttribute  EmployeeDto employeeDto,
                          RedirectAttributes redirect, Model model) {
-        if (bindingResult.hasFieldErrors()) {
-            model.addAttribute("division", iDivisionService.findAll());
-            model.addAttribute("position", iPositionService.findAll());
-            model.addAttribute("degree", degreeService.findAll());
-            return "employee/edit";
-        }
+//        if (bindingResult.hasFieldErrors()) {
+//            model.addAttribute("division", iDivisionService.findAll());
+//            model.addAttribute("position", iPositionService.findAll());
+//            model.addAttribute("degree", degreeService.findAll());
+//            return "employee/edit";
+//        }
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDto, employee);
         iEmployeeService.update(employee);

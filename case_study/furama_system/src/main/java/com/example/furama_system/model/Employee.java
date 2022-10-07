@@ -15,7 +15,7 @@ public class Employee {
 
     private String idCard;
 
-    private double salary;
+    private String salary;
 
     private String phoneNumber;
 
@@ -44,7 +44,7 @@ public class Employee {
     }
 
     public Employee(int id, String nameEmployee, String dateOfBirth, String idCard,
-                    double salary, String phoneNumber, String email, String address,
+                    String salary, String phoneNumber, String email, String address,
                     Position position, EducationDegree educationDegree, Division division,
                     Set<Contract> contractSet) {
         this.id = id;
@@ -101,11 +101,11 @@ public class Employee {
         this.idCard = idCard;
     }
 
-    public double getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
