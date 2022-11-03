@@ -15,7 +15,6 @@ import javax.transaction.Transactional;
 @Transactional
 public interface ICustomerRepository extends JpaRepository<Customer,Integer> {
 
-    Customer findById(int id);
 
     @Query(value = "select * from customer where name like %:keywordId% and is_delete = 0", nativeQuery = true)
     Page<Customer> findAllByKey(@Param("keywordId") String search, Pageable pageable);
