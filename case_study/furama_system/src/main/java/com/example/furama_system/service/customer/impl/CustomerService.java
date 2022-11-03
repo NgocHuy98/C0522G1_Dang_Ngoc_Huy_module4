@@ -44,4 +44,9 @@ iCustomerRepository.deleteById(id);
     public List<Customer> findAll() {
         return iCustomerRepository.findAll();
     }
+
+    @Override
+    public Page<Customer> findSearch(String name, Pageable pageable) {
+        return iCustomerRepository.pageSearch(name, pageable);
+    }
 }

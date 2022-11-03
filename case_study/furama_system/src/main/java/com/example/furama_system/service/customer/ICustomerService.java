@@ -20,4 +20,6 @@ public interface ICustomerService {
      void remove(int id);
 
     List<Customer> findAll();
+
+    Page<Customer> findSearch(String name, Pageable pageable);
 }
